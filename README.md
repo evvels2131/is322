@@ -1,6 +1,6 @@
 # IS 322-002
 
-<h3>Links:</h3><br />
+<h3>Links:</h3>
 <b>Midterm: </b>
 <a href="https://web.njit.edu/~tg77/is322/midterm/" target="_blank">
   web.njit.edu/~tg77/is322/midterm/index.html</a> <i>[in progress]</i>
