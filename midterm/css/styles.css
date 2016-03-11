@@ -4,3 +4,17 @@
   bottom: 0;
   margin: auto;
 }
+
+.ui-block-b {
+  padding-left: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+.dialog_images {
+  width: 100px;
+  height: 100px;
+  display: inline;
+}
