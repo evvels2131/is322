@@ -93,6 +93,56 @@ define([
       return isFavorite;
     },
 
+    addToFavorites: function() {
+      var genres_array = [];
 
+      // Check if there are any genres associated with the model
+      if (this.model.get('genres').length > 0) {
+        var genres = this.model.get('genres');
+
+        for (var i = 0; i < genres.length; i++) {
+          genres_array[i] = genres[i].id;
+        }
+      }
+
+      // Save to local storage
+      localStorageSave(this.model.get('id'), genres_array);
+
+      function localStorageSave(movie_id, genre_ids)
+      {
+        var movie_array = [];
+        var genre_array = [];
+
+        // If local storage not set, create it
+        if (localStorage.getItem('fav-movies') == null || localStorage.getItem('fav-genres') == null) {
+          localStorage.setItem('fav-movies', JSON.stringify(movie_array));
+          localStorage.setItem('fav-genres', JSON.stringify(genre_array));
+        }
+
+        // Add movie information to local storage
+        movie_array = JSON.parse(localStorage.getItem('fav-movies'));
+
+        // Check if movie id already exists in the local storage
+        if (movie_array.indexOf(movie_id) === -1) {
+          movie_array.push(movie_id);
+          localStorage.setItem('fav-movies', JSON.stringify(movie_array));
+        }
+
+        // Check if there are any genre ids, if so, store them in local storage
+        if (genre_ids.length > 0) {
+          genre_array = JSON.parse(localStorage.getItem('fav-genres'));
+
+          for (var i = 0; i < genre_ids.length; i++) {
+            if (genre_array.indexOf(genre_ids[i]) == -1) {
+              genre_array.push(genre_ids[i]);
+              localStorage.setItem('fav-genres', JSON.stringify(genre_array));
+            }
+          }
+        }
+
+        // Set the isFavorite attribute to true
+        this.model.set('isFavorite', true);
+      }
+    }
   });
 });
