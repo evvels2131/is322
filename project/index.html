@@ -39,7 +39,21 @@
     </script>
     <!-- /Home Template -->
 
-
+    <!-- Movie Template -->
+    <!-- Used as a list item in the HomeView list of movies -->
+    <script type="text/template" id="movie-template">
+      <a href="#movie/<% id %>">
+        <% if (poster_path != null) {
+          print('<img src="http://image.tmdb.org/t/p/w500' + poster_path + '" class="center_thumbnail">');
+        } else {
+          print('<img src="https://lh6.ggpht.com/i0nISAaiMH2ENRyfy7tXbQqRCEAJj3oyvPYgHXoI10b5i9VkQztwHzRQjm9R5cHvQJY=w300" class="center_thumbnail">');
+        } %>
+        <h2><%= original_title %></h2>
+        <p><b>Vote Average:</b> <%= vote_average %></p>
+        <p><b>Release Date:</b> <%= release_date %></p>
+      </a>
+    </script>
+    <!-- /Movie Template -->
 
     <script data-main="js/main" src="js/libs/require/require.js"></script>
   </head>
