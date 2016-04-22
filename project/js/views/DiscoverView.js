@@ -47,6 +47,26 @@ define([
 
     render: function() {
       var self = this;
+
+      this.discoverMoviesCollection.fetch({
+        success: function() {
+          self.content = self.moviesView.render().el.outerHTML;
+          $(self.el).html(self.template({
+            content: self.content
+          }));
+          $(self.el).trigger('create');
+        },
+
+        error: function(error) {
+          $(self.el).html(self.template({
+            content: self.content
+          }));
+          $(self.el).trigger('create');
+          console.log('Error: ' + error);
+        }
+      });
+
+      return this;
     }
   });
 });
