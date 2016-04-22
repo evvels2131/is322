@@ -2,12 +2,17 @@ define([
   'jquery',
   'backbone',
   '../views/HomeView',
-  '../views/MovieDetailsView'
+  '../views/MovieDetailsView',
+  '../views/TopRatedView',
+  '../views/UpcomingView',
 ], function($, Backbone) {
   var ApplicationRouter = Backbone.Router.extend({
 
     routes: {
       '': 'home',
+      'now_playing': 'home',
+      'top_rated': 'top_rated',
+      'upcoming': 'upcoming',
 
       'movie/:id': 'movie'
     },
@@ -23,6 +28,16 @@ define([
     home: function() {
       console.log('#home');
       this.changePage(new HomeView());
+    },
+
+    top_rated: function() {
+      console.log('#top_rated');
+      this.changePage(new TopRatedView());
+    },
+
+    upcoming: function() {
+      console.log('#upcoming');
+      this.changePage(new UpcomingView());
     },
 
     // Movie Details Page
