@@ -18,3 +18,13 @@
 .cat-btn {
   font-size: 90%;
 }
+
+/* Used for the theaters page */
+#map-canvas {
+  padding: 0;
+  position : absolute !important;
+  top : 44px !important;
+  right : 0;
+  bottom : 50px !important;
+  left : 0 !important;
+}
