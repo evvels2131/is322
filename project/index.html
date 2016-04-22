@@ -42,7 +42,7 @@
     <!-- Movie Template -->
     <!-- Used as a list item in the HomeView list of movies -->
     <script type="text/template" id="movie-template">
-      <a href="#movie/<% id %>">
+      <a href="#movie/<%= id %>">
         <% if (poster_path != null) {
           print('<img src="http://image.tmdb.org/t/p/w500' + poster_path + '" class="center_thumbnail">');
         } else {
