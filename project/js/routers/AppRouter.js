@@ -1,8 +1,7 @@
 define([
   'jquery',
   'backbone',
-  '../views/HomeView',
-  '../views/Page1View'
+  '../views/HomeView'
 ], function($, Backbone, ListView) {
   var ApplicationRouter = Backbone.Router.extend({
 
@@ -22,11 +21,6 @@ define([
     home: function() {
       console.log('#home');
       this.changePage(new HomeView());
-    },
-
-    page1: function() {
-      console.log('#page1');
-      this.changePage(new Page1View());
     },
 
     changePage: function(page) {
