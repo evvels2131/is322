@@ -6,7 +6,7 @@ define([
   'views/movies/MoviesView'
 ], function($, _, Backbone, MoviesCollection, MoviesView) {
 
-  window.TopRatedView = Backbone.View.extend({
+  window.UpcomingView = Backbone.View.extend({
 
     template: _.template($('#movies-upcoming').html()),
 
