@@ -7,6 +7,7 @@ define([
   '../views/UpcomingView',
   '../views/SearchView',
   '../views/TheatersView',
+  '../views/DiscoverView'
 ], function($, Backbone) {
   var ApplicationRouter = Backbone.Router.extend({
 
@@ -20,6 +21,7 @@ define([
 
       'search': 'search',
       'theaters': 'theaters',
+      'discover': 'discover'
     },
 
     initialize: function() {
@@ -59,6 +61,11 @@ define([
     theaters: function() {
       console.log('#theaters');
       this.changePage(new TheatersView());
+    },
+
+    discover: function() {
+      console.log('#discover');
+      this.changePage(new DiscoverView());
     },
 
     changePage: function(page) {
