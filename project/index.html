@@ -151,6 +151,32 @@
     </script>
     <!-- /Theaters -->
 
+    <!-- Discover -->
+    <script type="text/template" id="discover">
+      <div data-role="header" data-position="fixed">
+        <h1>Discover</h1>
+      </div>
+
+      <div role="main" class="ui-content">
+        <% if (content === 'undefined') {
+          print('<h2>Looks like you have not liked any movies yet.</h2>');
+          print('<h3>Please go ahead and add some of your favorites movies so we can provide you with recommendations.</h3>');
+        } else {
+          print(content);
+        } %>
+      </div>
+
+      <div data-role="footer" data-position="fixed" class="center">
+        <div data-role="controlgroup" data-type="horizontal">
+          <a href="#" class="ui-btn">Movies</a>
+          <a href="#search" class="ui-btn">Search</a>
+          <a href="#theaters" class="ui-btn">Theaters</a>
+          <a href="#discover" class="ui-btn ui-btn-active">Discover</a>
+        </div>
+      </div>
+    </script>
+    <!-- /Discover -->
+
     <!-- Movie Template -->
     <!-- Used as a list item in the HomeView list of movies -->
     <script type="text/template" id="movie-template">
@@ -198,7 +224,7 @@
       <p><b>Release Date:</b> <%= release_date %></p>
       <p><%= overview %></p>
       <% if (typeof(trailer_source) !== 'undefined') {
-        print('<h2>Trialer</h2>');
+        print('<h2>Trailer</h2>');
         print('<iframe src="https://youtube.com/embed/' + trailer_source + '" allowfullscreen></iframe>');
       } %>
       <% if (is_favorite) {
