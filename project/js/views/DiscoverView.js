@@ -49,6 +49,8 @@ define([
         }
       }
 
+      // If favorite genres are available in the local storage,
+      // get the collection and display it to the user
       if (this.favorites_exist) {
         this.genres = genres_string;
 
