@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'collections/DiscoverMoviesCollection',
-  'view/movies/MoviesView'
+  'views/movies/MoviesView'
 ], function($, _, Backbone, DiscoverMoviesCollection, MoviesView) {
 
   window.DiscoverView = Backbone.View.extend({
@@ -14,6 +14,7 @@ define([
       console.log('DiscoverView Initialized');
 
       this.content = 'undefined';
+      this.favorites_exist = false;
       this.page = 1;
       var genre_ids = [];
       var genres_string = '';
@@ -22,25 +23,44 @@ define([
       if (localStorage.getItem('fav-genres') != null) {
         genre_ids = JSON.parse(localStorage.getItem('fav-genres'));
 
-        for (var i = 0; i < genre_ids.length; i++) {
-          if (genre_ids.indexOf(genre_ids[i]) < genre_ids.length - 1) {
-            genres_string = genres_string.concat(genre_ids[i] + '|');
+        if (genre_ids.length > 0) {
+          this.favorites_exist = true;
+
+          // If it has multiple genre ids, pick 2 at random for better recommendations
+          var arr_result = [];
+          if (genre_ids.length > 2) {
+            for (var i = 0; i < 2; i++) {
+              arr_result[i] = genre_ids[Math.floor(Math.random() * genre_ids.length)];
+            }
           } else {
-            genres_string = genres_string.concat(genre_ids[i]);
+            for (var i = 0; i < genre_ids.length; i++) {
+              arr_result[i] = genre_ids[i];
+            }
+          }
+
+          // Convert the array into a string for the AJAX request
+          for (var i = 0; i < arr_result.length; i++) {
+            if (arr_result.indexOf(arr_result[i]) < arr_result.length - 1) {
+              genres_string = genres_string.concat(arr_result[i] + ',');
+            } else {
+              genres_string = genres_string.concat(arr_result[i]);
+            }
           }
         }
       }
 
-      this.genres = genres_string;
+      if (this.favorites_exist) {
+        this.genres = genres_string;
 
-      this.discoverMoviesCollection = new DiscoverMoviesCollection({
-        genres: this.genres,
-        page: this.page
-      });
+        this.discoverMoviesCollection = new DiscoverMoviesCollection({
+          genres: this.genres,
+          page: this.page
+        });
 
-      this.moviesView = new MoviesView({
-        collection: this.discoverMoviesCollection
-      });
+        this.moviesView = new MoviesView({
+          collection: this.discoverMoviesCollection
+        });
+      }
 
       this.render();
     },
@@ -48,23 +68,31 @@ define([
     render: function() {
       var self = this;
 
-      this.discoverMoviesCollection.fetch({
-        success: function() {
-          self.content = self.moviesView.render().el.outerHTML;
-          $(self.el).html(self.template({
-            content: self.content
-          }));
-          $(self.el).trigger('create');
-        },
+      console.log(this.favorites_exist);
 
-        error: function(error) {
-          $(self.el).html(self.template({
-            content: self.content
-          }));
-          $(self.el).trigger('create');
-          console.log('Error: ' + error);
-        }
-      });
+      if (this.favorites_exist) {
+        this.discoverMoviesCollection.fetch({
+          success: function() {
+            self.content = self.moviesView.render().el.outerHTML;
+            $(self.el).html(self.template({
+              content: self.content
+            }));
+            $(self.el).trigger('create');
+          },
+
+          error: function(error) {
+            $(self.el).html(self.template({
+              content: self.content
+            }));
+            $(self.el).trigger('create');
+            console.log('Error: ' + error);
+          }
+        });
+      } else {
+        $(this.el).html(self.template({
+          content: this.content
+        }));
+      }
 
       return this;
     }
