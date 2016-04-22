@@ -3,13 +3,46 @@
   <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href="css/jquery-mobile/jquery-mobile.css" />-->
+    <!--<link rel="stylesheet" href="css/jquery-mobile/jquery-mobile.css">-->
     <!-- grab jquery mobile from a cdn for now -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 
+    <!-- Home Template -->
+    <script type="text/template" id="home">
+      <div data-role="header" data-position="fixed">
+        <h1>Movies</h1>
+      </div>
+
+      <div role="main" class="ui-content">
+        <div data-role="controlgroup" data-type="horizontal" style="text-align: center">
+          <a href="#now_playing" class="ui-btn ui-btn-active" style="font-size: 90%">Now Playing</a>
+          <a href="#top_rated" class="ui-btn" style="font-size: 90%">Top Rated</a>
+          <a href="#upcoming" class="ui-btn" style="font-size: 90%">Upcoming</a>
+        </div>
+        <% if (content === 'undefined') {
+          print('<br /><h2>Oops! We are embarressed!</h2>');
+          print('<h3>We could not retrieve movies for you at the moment.</h3>');
+        } else {
+          print(content);
+        } %>
+        <!-- Content goes here -->
+      </div>
+
+      <div data-role="footer" data-position="fixed" style="text-align: center">
+        <div data-role="controlgroup" data-type="horizontal">
+          <a href="#" class="ui-btn ui-btn-active">Movies</a>
+          <a href="#search" class="ui-btn">Search</a>
+          <a href="#theaters" class="ui-btn">Theaters</a>
+          <a href="#discover" class="ui-btn">Discover</a>
+        </div>
+      </div>
+    </script>
+    <!-- /Home Template -->
+
+
+
     <script data-main="js/main" src="js/libs/require/require.js"></script>
   </head>
-
   <body>
   </body>
 </html>
