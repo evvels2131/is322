@@ -142,6 +142,57 @@ define([
 
         // Set the isFavorite attribute to true
         this.model.set('isFavorite', true);
+      },
+
+      removeFromFavorites: function() {
+        var genres_array = [];
+
+        // Check if there are any genre ids available, if so, store them in an array
+        if (this.model.get('genres').length > 0) {
+          var genres = this.model.get('genres');
+
+          for (var i = 0; i < genres.length; i++) {
+            genres_array[i] = genres[i].id;
+          }
+        }
+
+        locaStorageRemove(this.model.get('id'), genres_array);
+
+        function localStorageRemove(movie_id, genre_ids)
+        {
+          // Check if local storage is set for favorite movies and genres
+          if (localStorage.getItem('fav-movies') != null || localStorage.getItem('fav-genres') != null)
+          {
+            var movie_array = [];
+            var genre_array = [];
+
+            movie_array = JSON.parse(localStorage.getItem('fav-movies'));
+
+            // Check if the movie id is stored in local storage
+            if (movie_array.indexOf(movie_id) !== -1) {
+              var index = movie_array.indexOf(movie_id);
+              movie_array.splice(index, 1);
+              localStorage.setItem('fav-movies', JSON.stringify(movie_array));
+              console.log('Movie removed from the fav-movies');
+            }
+
+            // If there are any genre ids available, delete them
+            if (genre_ids.length > 0) {
+              genre_array = JSON.parse(localStorage.getItem('fav-genres'));
+
+              for (var i = 0; i < genre_ids.length; i++) {
+                if (genre_array.indexOf(genre_ids[i]) !== -1) {
+                  var index = genre_array.indexOf(genre_ids[i]);
+                  genre_array.splice(index, 1);
+                  localStorage.setItem('fav-genres', JSON.stringify(genre_array));
+                  console.log('Genre id was removed from the fav-genres');
+                }
+              }
+            }
+          }
+        }
+        // Set the isFavorite attribute to false
+        this.model.set('isFavorite', false);
       }
     }
   });
