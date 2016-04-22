@@ -75,6 +75,24 @@ define([
       return this;
     },
 
+    checkIfFavorite: function(movie_id) {
+      var isFavorite = false;
+      var movie_array = [];
+
+      // Check the local storage
+      if (localStorage.getItem('fav-movies') == null) {
+        console.log('Local storage not yet set for favorite movies');
+      } else {
+        movie_array = JSON.parse(localStorage.getItem('fav-movies'));
+
+        // Check if movie id is already stored in the favorites
+        if (movie_array.indexOf(movie_id) !== -1) {
+          isFavorite = true;
+        }
+      }
+      return isFavorite;
+    },
+
 
   });
 });
