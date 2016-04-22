@@ -5,7 +5,8 @@ define([
   '../views/MovieDetailsView',
   '../views/TopRatedView',
   '../views/UpcomingView',
-  '../views/SearchView'
+  '../views/SearchView',
+  '../views/TheatersView',
 ], function($, Backbone) {
   var ApplicationRouter = Backbone.Router.extend({
 
@@ -18,6 +19,7 @@ define([
       'movie/:id': 'movie',
 
       'search': 'search',
+      'theaters': 'theaters',
     },
 
     initialize: function() {
@@ -45,11 +47,18 @@ define([
 
     // Movie Details Page
     movie: function(id) {
+      console.log('#movie/:id');
       this.changePage(new MovieDetailsView({ id: id }));
     },
 
     search: function() {
+      console.log('#search');
       this.changePage(new SearchView());
+    },
+
+    theaters: function() {
+      console.log('#theaters');
+      this.changePage(new TheatersView());
     },
 
     changePage: function(page) {
