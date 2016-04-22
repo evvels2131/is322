@@ -1,13 +1,15 @@
 define([
   'jquery',
   'backbone',
-  '../views/HomeView'
-], function($, Backbone, ListView) {
+  '../views/HomeView',
+  '../views/MovieDetailsView'
+], function($, Backbone) {
   var ApplicationRouter = Backbone.Router.extend({
 
     routes: {
       '': 'home',
-      'page1': 'page1'
+
+      'movie/:id': 'movie'
     },
 
     initialize: function() {
@@ -21,6 +23,11 @@ define([
     home: function() {
       console.log('#home');
       this.changePage(new HomeView());
+    },
+
+    // Movie Details Page
+    movie: function(id) {
+      this.changePage(new MovieDetailsView({ id: id }));
     },
 
     changePage: function(page) {
