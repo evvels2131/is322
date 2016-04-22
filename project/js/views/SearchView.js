@@ -2,7 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-], function($, _, Backbone) {
+  'collections/SearchMovieCollection',
+  'views/movies/MoviesView'
+], function($, _, Backbone, SearchMovieCollection, MoviesView) {
 
   window.SearchView = Backbone.View.extend({
 
@@ -17,6 +19,12 @@ define([
       this.title = 'Star Wars';
       this.page = 1;
 
+      this.render();
+    },
+
+    render: function() {
+      var self = this;
+
       this.moviesCollection = new SearchMovieCollection({
         title: this.title,
         page: this.page
@@ -25,12 +33,6 @@ define([
       this.moviesView = new MoviesView({
         collection: this.moviesCollection
       });
-
-      this.render();
-    },
-
-    render: function() {
-      var self = this;
 
       this.moviesCollection.fetch({
         success: function() {
@@ -51,6 +53,14 @@ define([
       });
 
       return this;
+    },
+
+    searchMovie: function() {
+      this.title = $('#search-movie-input').val();
+
+      if (this.title != '') {
+        this.render();
+      }
     }
   });
 });
