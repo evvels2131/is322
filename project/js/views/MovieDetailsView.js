@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'models/MovieDetailsModel'
-], function($, _, Backbone, MoveDetailsModel) {
+], function($, _, Backbone, MovieDetailsModel) {
 
   window.MovieDetailsView = Backbone.View.extend({
 
