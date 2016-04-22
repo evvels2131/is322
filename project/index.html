@@ -55,6 +55,25 @@
     </script>
     <!-- /Movie Template -->
 
+    <!-- Movie Details Page -->
+    <!-- Used as the page to display details about a movie -->
+    <script type="text/template" id="movie-details-template">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
+        <h1>Details</h1>
+      </div>
+
+      <div role="main" class="ui-content">
+        <% if (content === 'undefined') {
+          print('<br /><h2>Oops! We are embarressed!</h2>');
+          print('<h3>We could not retrieve movies for you at the moment.</h3>');
+        } else {
+          print(content);
+        } %>
+      </div>
+    </script>
+    <!-- /Movie Details Page -->
+
     <script data-main="js/main" src="js/libs/require/require.js"></script>
   </head>
   <body>
