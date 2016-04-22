@@ -74,6 +74,29 @@
     </script>
     <!-- /Movie Details Page -->
 
+    <!-- Movie Details Template -->
+    <!-- Shows information about a specific movie -->
+    <script type="text/template" id="show-movie-details-template">
+      <% if (is_favorite) {
+        print('<a href="#" class="ui-btn ui-corner-all ui-icon-heart ui-btn-icon-notext ui-alt-icon">Heart Icon</a>');
+      } else {
+        print('<a href="#" class="ui-btn ui-corner-all ui-icon-heart ui-btn-icon-notext">Heart Icon</a>');
+      } %>
+      <h2><%= original_title %></h2>
+      <p><b>Release Date:</b> <%= release_date %></p>
+      <p><%= overview %></p>
+      <% if (typeof(trailer_source) !== 'undefined') {
+        print('<h2>Trialer</h2>');
+        print('<iframe src="https://youtube.com/embed/' + trailer_source + '" allowfullscreen></iframe>');
+      } %>
+      <% if (is_favorite) {
+        print('<a link="#" data-role="button" id="remove_from_favorites">Remove from favorites</a>');
+      } else {
+        print('<a link="#" data-role="button" id="add_to_favorites">Add to favorites</a>');
+      } %>
+    </script>
+    <!-- /Movie Details Template -->
+
     <script data-main="js/main" src="js/libs/require/require.js"></script>
   </head>
   <body>
