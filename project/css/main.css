@@ -8,3 +8,13 @@
   width: 65px;
   border-radius: 5px 15px 10px;
 }
+
+/* Used to center elements */
+.center {
+  text-align: center;
+}
+
+/* Used for centering movie categories (now_playing, top_rated, upcoming) */
+.cat-btn {
+  font-size: 90%;
+}
