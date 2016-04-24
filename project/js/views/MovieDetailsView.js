@@ -58,7 +58,9 @@ define([
             release_date: self.model.get('release_date'),
             is_favorite: self.model.get('isFavorite'),
             trailer_source: trailer_source,
-            similar: self.model.get('similar')
+            similar: self.model.get('similar'),
+            images: self.model.get('images'),
+            credits: self.model.get('credits')
           });
 
           $(self.el).html(self.template({
