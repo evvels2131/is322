@@ -193,6 +193,24 @@
     </script>
     <!-- /Movie Template -->
 
+    <!-- Person Details Page -->
+    <script type="text/template" id="person-details-template">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
+        <h1>Details</h1>
+      </div>
+
+      <div role="main" class="ui-content movie-details-content">
+        <% if (content === 'undefined') {
+          print('<br /><h2>Oops! We are embarressed!</h2>');
+          print('<h3>We could not retrieve movies for you at the moment.</h3>');
+        } else {
+          print(content);
+        } %>
+      </div>
+    </script>
+    <!-- /Person Details Page -->
+
     <!-- Movie Details Page -->
     <!-- Used as the page to display details about a movie -->
     <script type="text/template" id="movie-details-template">
@@ -211,6 +229,39 @@
       </div>
     </script>
     <!-- /Movie Details Page -->
+
+    <!-- Person Details Temlate -->
+    <script type="text/template" id="show-person-details-template">
+      <div class="card">
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <h2 class="a-left"><%= name %></h2>
+            <p class="a-left"><b>Date of birth:</b></p>
+            <p class="a-left"><%= birthday %></p>
+          </div>
+          <div class="ui-block-b">
+            <% if (profile_image != null) { %>
+              <img src="http://image.tmdb.org/t/p/w500<%= profile_image %>" class="actor_image"/>
+            <% } %>
+          </div>
+        </div>
+        <p class="a-left"><b>Biography:</b></p>
+        <p class="a-left"><%= biography %></p>
+      </div>
+
+      <% if (movie_credits.cast.length > 0) { %>
+        <div id="similar_movies">
+          <p class="heading_card">Movies</p>
+          <% _.each(movie_credits.cast, function(movie) {
+              if (movie.poster_path != null) { %>
+                <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                  class="similar_poster"></img></a>
+              <%}
+            }); %>
+        </div>
+      <% } %>
+    </script>
+    <!-- /Person Details Template -->
 
     <!-- Movie Details Template -->
     <!-- Shows information about a specific movie -->
@@ -247,6 +298,17 @@
         <hr>
         <p class="a-left"><b>Release Date:</b> <%= release_date %></p>
         <p class="a-left"><%= overview %></p>
+        <p class="a-left"><b>Cast Members:</b></p>
+        <div data-role="main" class="ui-content">
+          <ul data-role="listview">
+            <%
+            _.each(credits.cast, function(member) {
+              if (member.profile_path != null) { %>
+                <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
+              <% }
+            }); %>
+          </ul>
+        </div>
       </div>
 
       <% if (trailer_source !== 'undefined') {
@@ -258,17 +320,6 @@
         </div>
       <% } %>
 
-      <% if (images !== 'undefined') { %>
-        <div class="card">
-          <p class="heading_card">Images</p>
-          <% _.each(images.posters, function(poster) {
-            if (poster.file_path != null) { %>
-              <img src="http://image.tmdb.org/t/p/w500<%= poster.file_path %>" class="poster_images"/>
-            <% }
-          }) %>
-        </div>
-      <% }%>
-      
       <% if (credits.cast.length > 0) { %>
         <div class="card">
           <p class="heading_card">Cast Members</p>
