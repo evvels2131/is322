@@ -236,8 +236,10 @@
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <h2 class="a-left"><%= name %></h2>
-            <p class="a-left"><b>Date of birth:</b></p>
-            <p class="a-left"><%= birthday %></p>
+            <% if (birthday != null) { %>
+              <p class="a-left"><b>Date of birth:</b></p>
+              <p class="a-left"><%= birthday %></p>
+            <% } %>
           </div>
           <div class="ui-block-b">
             <% if (profile_image != null) { %>
@@ -245,8 +247,11 @@
             <% } %>
           </div>
         </div>
-        <p class="a-left"><b>Biography:</b></p>
-        <p class="a-left"><%= biography %></p>
+        <% if (biography != null) { %>
+          <p class="a-left"><b>Biography:</b></p>
+          <p class="a-left"><%= biography %></p>
+        <% } %>
+
       </div>
 
       <% if (movie_credits.cast.length > 0) { %>
@@ -299,14 +304,13 @@
         <p class="a-left"><b>Release Date:</b> <%= release_date %></p>
         <p class="a-left"><%= overview %></p>
         <p class="a-left"><b>Cast Members:</b></p>
+        <% console.log(credits.cast); %>
         <div data-role="main" class="ui-content">
           <ul data-role="listview">
             <%
-            _.each(credits.cast, function(member) {
-              if (member.profile_path != null) { %>
+            _.each(credits.cast, function(member) { %>
                 <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
-              <% }
-            }); %>
+            <% }); %>
           </ul>
         </div>
       </div>
@@ -317,26 +321,6 @@
           <p class="heading_card">Trailer</p>
           <iframe src="https://youtube.com/embed/<%= trailer_source %>" class="trailer"
             allowfullscreen></iframe>
-        </div>
-      <% } %>
-
-      <% if (credits.cast.length > 0) { %>
-        <div class="card">
-          <p class="heading_card">Cast Members</p>
-          <div data-role="main" class="ui-content">
-            <ul data-role="listview" data-inset="true">
-              <%
-              _.each(credits.cast, function(member) {
-                if (member.profile_path != null) { %>
-                  <li>
-                    <img src="http://image.tmdb.org/t/p/w500<%= member.profile_path %>" class="actor_images" />
-                    <h2><%= member.name %></h2>
-                    <p>Character: <%= member.character %></p>
-                  </li>
-                <% }
-              }); %>
-            </ul>
-          </div>
         </div>
       <% } %>
 
