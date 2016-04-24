@@ -3,6 +3,7 @@ define([
   'backbone',
   '../views/HomeView',
   '../views/MovieDetailsView',
+  '../views/PersonView',
   '../views/TopRatedView',
   '../views/UpcomingView',
   '../views/SearchView',
@@ -18,6 +19,7 @@ define([
       'upcoming': 'upcoming',
 
       'movie/:id': 'movie',
+      'person/:id': 'person',
 
       'search': 'search',
       'theaters': 'theaters',
@@ -51,6 +53,12 @@ define([
     movie: function(id) {
       console.log('#movie/:id');
       this.changePage(new MovieDetailsView({ id: id }));
+    },
+
+    // Person Details Page
+    person: function(id) {
+      console.log('#person/' + id);
+      this.changePage(new PersonView({ id: id }));
     },
 
     search: function() {
