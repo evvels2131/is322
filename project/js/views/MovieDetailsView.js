@@ -50,8 +50,6 @@ define([
             trailer_source = self.model.attributes.trailers.youtube[0].source;
           }
 
-          console.log(self.model.toJSON());
-
           self.content = template({
             original_title: self.model.get('original_title'),
             overview: self.model.get('overview'),
