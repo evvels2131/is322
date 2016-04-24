@@ -258,6 +258,36 @@
         </div>
       <% } %>
 
+      <% if (images !== 'undefined') { %>
+        <div class="card">
+          <p class="heading_card">Images</p>
+          <% _.each(images.posters, function(poster) {
+            if (poster.file_path != null) { %>
+              <img src="http://image.tmdb.org/t/p/w500<%= poster.file_path %>" class="poster_images"/>
+            <% }
+          }) %>
+        </div>
+      <% }%>
+      
+      <% if (credits.cast.length > 0) { %>
+        <div class="card">
+          <p class="heading_card">Cast Members</p>
+          <div data-role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true">
+              <%
+              _.each(credits.cast, function(member) {
+                if (member.profile_path != null) { %>
+                  <li>
+                    <img src="http://image.tmdb.org/t/p/w500<%= member.profile_path %>" class="actor_images" />
+                    <h2><%= member.name %></h2>
+                    <p>Character: <%= member.character %></p>
+                  </li>
+                <% }
+              }); %>
+            </ul>
+          </div>
+        </div>
+      <% } %>
 
       <% if (similar.total_results > 0) { %>
         <div id="similar_movies">
