@@ -70,8 +70,6 @@ define([
     render: function() {
       var self = this;
 
-      console.log(this.favorites_exist);
-
       if (this.favorites_exist) {
         this.discoverMoviesCollection.fetch({
           success: function() {
