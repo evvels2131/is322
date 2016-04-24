@@ -19,5 +19,5 @@ define([
     }
   });
 
-  return PersomModel;
+  return PersonModel;
 });
