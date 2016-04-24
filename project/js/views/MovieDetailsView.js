@@ -59,8 +59,8 @@ define([
             is_favorite: self.model.get('isFavorite'),
             trailer_source: trailer_source,
             similar: self.model.get('similar'),
-            images: self.model.get('images'),
-            credits: self.model.get('credits')
+            credits: self.model.get('credits'),
+            poster: self.model.get('poster_path')
           });
 
           $(self.el).html(self.template({
