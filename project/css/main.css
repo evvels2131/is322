@@ -62,9 +62,10 @@
 
 /* Used to display the heart icon */
 .heart_icon {
+  padding-top: 35px;
   padding-left: 10px;
   margin-top: 5px;
-  width: 45px;
+  width: 50px;
 }
 
 /* Used to set up a background in movie details content */
@@ -89,8 +90,14 @@
   width: 75px;
 }
 
+/* Used for displaying actors image */
 .actor_image {
   width: 90px;
   padding-top: 20px;
+  border-radius: 5px;
+}
+
+.poster_image_movie_details {
+  width: 80px;
   border-radius: 5px;
 }
