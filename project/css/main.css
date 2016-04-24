@@ -83,3 +83,18 @@
 .a-left {
   text-align: left;
 }
+
+/* Used for displaying posters */
+.poster_images {
+  width: 75px;
+}
+
+.actor_images {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding-left: 15px;
+  width: 50px;
+  border-radius: 5px 15px 10px;
+}
