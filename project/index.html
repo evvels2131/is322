@@ -245,20 +245,29 @@
       <div class="card">
         <h2><%= original_title %></h2>
         <hr>
-        <p><b>Release Date:</b> <%= release_date %></p>
-        <p><%= overview %></p>
-        <% if (typeof(trailer_source) !== 'undefined') {
-          print('<h2>Trailer</h2>');
-          print('<iframe src="https://youtube.com/embed/' + trailer_source + '" allowfullscreen></iframe>');
-        } %>
+        <p class="a-left"><b>Release Date:</b> <%= release_date %></p>
+        <p class="a-left"><%= overview %></p>
       </div>
 
-      <% if (similar != 'undefined') { %>
+      <% if (trailer_source !== 'undefined') {
+        %>
+        <div class="card">
+          <p class="heading_card">Trailer</p>
+          <iframe src="https://youtube.com/embed/<%= trailer_source %>" class="trailer"
+            allowfullscreen></iframe>
+        </div>
+      <% } %>
+
+
+      <% if (similar.total_results > 0) { %>
         <div id="similar_movies">
-        <p class="similar_movies">Similar Movies</p>
-        <% _.each(similar.results, function(movie) { %>
-            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster"></img></a>
-        <% }); %>
+        <p class="heading_card">Similar Movies</p>
+        <% _.each(similar.results, function(movie) {
+            if (movie.poster_path != null) { %>
+              <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                class="similar_poster"></img></a>
+            <%}
+          }); %>
         </div>
       <% } %>
     </script>
