@@ -16,6 +16,18 @@
   font-size: 0.8em;
 }
 
+/* Styling for the back button icon */
+.back-button-icon {
+  margin: 5px auto 5px 5px;
+  width: 25px;
+}
+
+/* Styling for the favorite/not-favorite icon */
+.favorite-icon {
+  width: 35px;
+  margin: auto 2px auto auto;
+}
+
 /* Used to center elements */
 .center {
   text-align: center;
