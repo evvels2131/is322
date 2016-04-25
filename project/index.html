@@ -11,19 +11,21 @@
     <!-- Home Template -->
     <script type="text/template" id="home">
       <div data-role="header" data-position="fixed">
-        <h1>Movies</h1>
+        <div data-role="controlgroup" data-type="horizontal" class="center">
+          <a href="#now_playing" class="ui-btn ui-btn-active" class="category-btn">Now Playing</a>
+          <a href="#top_rated" class="ui-btn" class="category-btn">Top Rated</a>
+          <a href="#upcoming" class="ui-btn" class="category-btn">Upcoming</a>
+        </div>
       </div>
 
       <div role="main" class="ui-content">
-        <div data-role="controlgroup" data-type="horizontal" style="text-align: center">
-          <a href="#now_playing" class="ui-btn ui-btn-active" style="font-size: 90%">Now Playing</a>
-          <a href="#top_rated" class="ui-btn" style="font-size: 90%">Top Rated</a>
-          <a href="#upcoming" class="ui-btn" style="font-size: 90%">Upcoming</a>
-        </div>
-        <% if (content === 'undefined') {
-          print('<br /><h2>Oops! We are embarressed!</h2>');
-          print('<h3>We could not retrieve movies for you at the moment.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
         <!-- Content goes here -->
@@ -43,19 +45,21 @@
     <!-- Top Rated Movies Template -->
     <script type="text/template" id="movies-top-rated">
       <div data-role="header" data-position="fixed">
-        <h1>Movies</h1>
+        <div data-role="controlgroup" data-type="horizontal" class="center">
+          <a href="#now_playing" class="ui-btn" class="category-btn">Now Playing</a>
+          <a href="#top_rated" class="ui-btn ui-btn-active" class="category-btn">Top Rated</a>
+          <a href="#upcoming" class="ui-btn" class="category-btn">Upcoming</a>
+        </div>
       </div>
 
       <div role="main" class="ui-content">
-        <div data-role="controlgroup" data-type="horizontal" class="center">
-          <a href="#now_playing" class="ui-btn cat-btn">Now Playing</a>
-          <a href="#top_rated" class="ui-btn ui-btn-active cat-btn">Top Rated</a>
-          <a href="#upcoming" class="ui-btn cat-btn">Upcoming</a>
-        </div>
-        <% if (content === 'undefined') {
-          print('<h2>Oops! We are embarressed!</h2>');
-          print('<h3>We could not retrieve movies for you at the moment.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
       </div>
@@ -74,19 +78,21 @@
     <!-- Upcoming Movies Template -->
     <script type="text/template" id="movies-upcoming">
       <div data-role="header" data-position="fixed">
-        <h1>Movies</h1>
+        <div data-role="controlgroup" data-type="horizontal" class="center">
+          <a href="#now_playing" class="ui-btn" class="category-btn">Now Playing</a>
+          <a href="#top_rated" class="ui-btn" class="category-btn">Top Rated</a>
+          <a href="#upcoming" class="ui-btn ui-btn-active" class="category-btn">Upcoming</a>
+        </div>
       </div>
 
       <div role="main" class="ui-content">
-        <div data-role="controlgroup" data-type="horizontal" class="center">
-          <a href="#now_playing" class="ui-btn cat-btn">Now Playing</a>
-          <a href="#top_rated" class="ui-btn cat-btn">Top Rated</a>
-          <a href="#upcoming" class="ui-btn ui-btn-active cat-btn">Upcoming</a>
-        </div>
-        <% if (content === 'undefined') {
-          print('<h2>Oops! We are embarressed!</h2>');
-          print('<h3>We could not retrieve movies for you at the moment.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
       </div>
@@ -111,10 +117,13 @@
       <div role="main" class="ui-content">
         <input type="search" id="search-movie-input" placeholder="Star Wars..." autocomplete="off">
         <input type="button" value="Search" id="search-movie-btn">
-        <% if (content === 'undefined') {
-          print('<h2>Oops! We are embarressed!</h2>');
-          print('<h3>We could not retrieve movies for you at the moment.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
       </div>
@@ -158,10 +167,13 @@
       </div>
 
       <div role="main" class="ui-content">
-        <% if (content === 'undefined') {
-          print('<h2>Looks like you have not liked any movies yet.</h2>');
-          print('<h3>Please go ahead and add some of your favorites movies so we can provide you with recommendations.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
       </div>
@@ -201,10 +213,13 @@
       </div>
 
       <div role="main" class="ui-content movie-details-content">
-        <% if (content === 'undefined') {
-          print('<br /><h2>Oops! We are embarressed!</h2>');
-          print('<h3>We could not retrieve movies for you at the moment.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
       </div>
@@ -220,10 +235,13 @@
       </div>
 
       <div role="main" class="ui-content movie-details-content">
-        <% if (content === 'undefined') {
-          print('<br /><h2>Oops! We are embarressed!</h2>');
-          print('<h3>We could not retrieve movies for you at the moment.</h3>');
-        } else {
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <img src="images/broken.png" />
+          </div>
+        <% } else {
           print(content);
         } %>
       </div>
@@ -289,6 +307,8 @@
       </div>
 
       <div class="card">
+        <%
+        %>
         <h2><%= original_title %></h2>
         <hr>
         <p class="a-left"><b>Release Date:</b> <%= release_date %></p>
@@ -297,7 +317,11 @@
         <div data-role="main" class="ui-content">
           <ul data-role="listview">
             <%
-            _.each(credits.cast, function(member) { %>
+            var cast = [];
+            for (var i = 0; i < 4; i++) {
+              cast[i] = credits.cast[i];
+            }
+            _.each(cast, function(member) { %>
                 <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
             <% }); %>
           </ul>
@@ -316,7 +340,12 @@
       <% if (similar.total_results > 0) { %>
         <div id="similar_movies">
         <p class="heading_card">Similar Movies</p>
-        <% _.each(similar.results, function(movie) {
+        <%
+        var similar_movies = [];
+        for (var i = 0; i < 10; i++) {
+          similar_movies[i] = similar.results[i];
+        }
+        _.each(similar_movies, function(movie) {
             if (movie.poster_path != null) { %>
               <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
                 class="similar_poster"></img></a>
