@@ -9,6 +9,10 @@
   border-radius: 5px 15px 10px;
 }
 
+.category-btn {
+  font-size: 0.8em;
+}
+
 /* Used to center elements */
 .center {
   text-align: center;
@@ -83,6 +87,10 @@
 
 .a-left {
   text-align: left;
+}
+
+.warning {
+  color: red;
 }
 
 /* Used for displaying posters */
