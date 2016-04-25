@@ -1,12 +1,8 @@
-/* Used for #movie-template */
-.center_thumbnail {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  padding-left: 15px;
+/* Poster picture on the movies page */
+.poster {
   width: 65px;
-  border-radius: 5px 15px 10px;
+  margin: 10px auto auto 15px;
+  border-radius: 5px;
 }
 
 .category-btn {

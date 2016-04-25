@@ -195,9 +195,9 @@
     <script type="text/template" id="movie-template">
       <a href="#movie/<%= id %>">
         <% if (poster_path != null) { %>
-          <img src="http://image.tmdb.org/t/p/w500<%= poster_path %>" class="center_thumbnail" />
+          <img src="http://image.tmdb.org/t/p/w500<%= poster_path %>" class="poster" />
         <% } else { %>
-          <img src="images/movie_alternative.png" class="center_thumbnail" />
+          <img src="images/movie_alternative.png" class="poster" />
         <% } %>
         <h2><%= original_title %></h2>
         <p><b>Vote Average:</b> <%= vote_average %></p>
