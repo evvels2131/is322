@@ -111,12 +111,17 @@
     <!-- Search Movies Template -->
     <script type="text/template" id="search">
       <div data-role="header" data-position="fixed">
-        <h1>Search</h1>
+        <div class="ui-grid-b">
+          <div class="ui-block-a search-input">
+            <input type="search" id="search-movie-input" placeholder="Star Wars..">
+          </div>
+          <div class="ui-block-b center">
+            <img src="images/search.png" id="search-movie-btn" class="search-icon" />
+          </div>
+        </div>
       </div>
 
       <div role="main" class="ui-content">
-        <input type="search" id="search-movie-input" placeholder="Star Wars..." autocomplete="off">
-        <input type="button" value="Search" id="search-movie-btn">
         <% if (content === 'undefined') { %>
           <div class="card">
             <h3 class="warning">Something went terribly wrong!</h3>
