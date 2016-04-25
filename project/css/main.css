@@ -3,6 +3,13 @@
   width: 65px;
   margin: 10px auto auto 15px;
   border-radius: 5px;
+  box-shadow: 2px 2px 5px rgb(153, 185, 225);
+}
+
+/* Alternative image to a poster if one does not exist */
+.poster-alt {
+  padding: 5px;
+  width: 60px;
 }
 
 .category-btn {
