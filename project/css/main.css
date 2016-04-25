@@ -109,3 +109,23 @@
   width: 80px;
   border-radius: 5px;
 }
+
+/* Overriding the width property of jquery mobile ui-grids */
+.ui-grid-b .ui-block-a {
+  width: 80%;
+}
+
+.ui-grid-b .ui-block-b {
+  width: 20%;
+}
+
+/* Used for styling the search icon */
+.search-icon {
+  padding-top: 15px;
+  width: 25px;
+}
+
+/* Used for the search input field */
+.search-input {
+  padding-left: 5px;
+}
