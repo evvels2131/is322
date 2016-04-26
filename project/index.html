@@ -210,7 +210,7 @@
     <!-- Person Details Page -->
     <script type="text/template" id="person-details-template">
       <div data-role="header" data-position="fixed">
-        <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
+        <a href="#" data-rel="back" data-role="none" class="back"><img src="images/back.png" class="back-button-icon" /></a>
         <h1>Details</h1>
       </div>
 
@@ -232,7 +232,7 @@
     <!-- Used as the page to display details about a movie -->
     <script type="text/template" id="movie-details-template">
       <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back" data-role="none"><img src="images/back.png" class="back-button-icon" /></a>
+        <a href="#" data-rel="back" data-role="none" class="back"><img src="images/back.png" class="back-button-icon" /></a>
         <h1>Details</h1>
         <a href="#" data-role="none" style="text-align: right">
           <% if (isFavorite) { %>
@@ -275,23 +275,39 @@
           </div>
         </div>
         <% if (biography != '' && biography != null) { %>
-          <p class="a-left"><b>Biography:</b></p>
-          <p class="a-left"><%= biography %></p>
-        <% } %>
+          <p class="a-left"><b>Biography:</b></p> <%
+          if (biography.length > 600) { %>
+            <p class="a-left"><%= biography.substring(0, 600) %>...</p> <%
+          } else { %>
+            <p class="a-left"><%= biography %></p> <%
+          }
+        } %>
 
+        <%
+          if (movie_credits.cast.length > 0) { %>
+            <p class="a-left"><strong>Movies:</strong></p> <%
+            if (movie_credits.cast.length > 12) {
+              var movies = [];
+              for (var i = 0; i < 12; i++) {
+                movies[i] = movie_credits.cast[i];
+              }
+              _.each(movies, function(movie) {
+                if (movie.poster_path != null) { %>
+                  <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                    class="similar_poster"></img></a> <%
+                }
+              });
+            } else {
+              _.each(movie_credits.cast, function(movie) {
+                if (movie.poster_path != null) { %>
+                  <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                    class="similar_poster"></img></a> <%
+                }
+              });
+            }
+          }
+        %>
       </div>
-
-      <% if (movie_credits.cast.length > 0) { %>
-        <div id="similar_movies">
-          <p class="heading_card">Movies</p>
-          <% _.each(movie_credits.cast, function(movie) {
-              if (movie.poster_path != null) { %>
-                <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
-                  class="similar_poster"></img></a>
-              <%}
-            }); %>
-        </div>
-      <% } %>
     </script>
     <!-- /Person Details Template -->
 
