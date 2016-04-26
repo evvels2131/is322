@@ -299,13 +299,19 @@
     <!-- Shows information about a specific movie -->
     <script type="text/template" id="show-movie-details-template">
       <div class="card">
-        <% if (poster != null) { %>
-          <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster_image_movie_details" />
-        <% } else { %>
-          <img src="images/movie_alternative.png" class="poster poster-alt" />
-        <% } %>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <h2><%= original_title %></h2>
+          </div>
+          <div class="ui-block-b">
+            <% if (poster != null) { %>
+              <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster_image_movie_details" />
+            <% } else { %>
+              <img src="images/movie_alternative.png" class="poster poster-alt" />
+            <% } %>
+          </div>
+        </div>
         <hr>
-        <h2><%= original_title %></h2>
         <% if (overview != null || overview != 'undefined') { %>
           <h3 class="a-left">Overview:</h3>
           <p class="a-left"><%= overview %></p>

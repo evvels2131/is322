@@ -141,6 +141,14 @@
   width: 20%;
 }
 
+.ui-grid-a .ui-block-a {
+  width: 70%;
+}
+
+.ui-grid-a .ui-block-b {
+  width: 30%;
+}
+
 /* Used for styling the search icon */
 .search-icon {
   padding-top: 15px;
