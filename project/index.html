@@ -346,32 +346,27 @@
           <p class="a-left"><strong>Production countries:</strong><br /><%= prod_count %></p>
         <% } %>
 
-        <div data-role="main" class="ui-content">
-          <ul data-role="listview">
-            <%
-            if (credits.cast.length > 0) { %>
-              <p class="a-left"><strong>Cast members:</strong></p>
+        <% if (credits.cast.length > 0) { %>
+            <p class="a-left"><strong>Cast members:</strong></p>
+            <ul data-role="listview" class="cast-members-list">
               <% if (credits.cast.length > 5) {
-                var cast = []
-                for (var i = 0; i < 5; i++) {
-                  cast[i] = credits.cast[i];
-                }
-                _.each(cast, function(member) { %>
-                  <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
-                <% });
-              } else {
-                _.each(credits.cast, function(member) { %>
-                  <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
-                <% });
-              }
-            }
-            %>
-          </ul>
-        </div>
+                  var cast = []
+                  for (var i = 0; i < 5; i++) {
+                    cast[i] = credits.cast[i];
+                  }
+                  _.each(cast, function(member) { %>
+                    <li data-icon="arrow-r"><a href="#person/<%= member.id %>"><%= member.name %></a></li>
+                  <% });
+                } else {
+                  _.each(credits.cast, function(member) { %>
+                    <li data-icon="arrow-r" class="ui-alt-icon ui-nodisc-icon"><a href="#person/<%= member.id %>"><%= member.name %></a></li>
+                  <% });
+                } %>
+            </ul>
+        <% } %>
       </div>
 
-      <% if (trailer_source !== 'undefined') {
-        %>
+      <% if (trailer_source !== 'undefined') { %>
         <div class="card">
           <p class="heading_card">Trailer</p>
           <iframe src="https://youtube.com/embed/<%= trailer_source %>" class="trailer"

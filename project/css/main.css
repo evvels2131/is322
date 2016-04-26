@@ -151,3 +151,8 @@
 .search-input {
   padding-left: 5px;
 }
+
+/* Movie details - cast members list */
+.cast-members-list {
+  padding: 15px 20px 20px 20px;
+}
