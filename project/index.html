@@ -6,6 +6,7 @@
     <!--<link rel="stylesheet" href="css/jquery-mobile/jquery-mobile.css">-->
     <!-- grab jquery mobile from a cdn for now -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.0.1/jquery.rateyo.min.css">
     <link rel="stylesheet" href="css/main.css">
 
     <!-- Home Template -->
@@ -213,7 +214,7 @@
         <h1>Details</h1>
       </div>
 
-      <div role="main" class="ui-content movie-details-content">
+      <div role="main" class="ui-content actor-details-content">
         <% if (content === 'undefined') { %>
           <div class="card">
             <h3 class="warning">Something went terribly wrong!</h3>
@@ -298,6 +299,54 @@
     <!-- Shows information about a specific movie -->
     <script type="text/template" id="show-movie-details-template">
       <div class="card">
+        <% if (poster != null) { %>
+          <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster_image_movie_details" />
+        <% } else { %>
+          <img src="images/movie_alternative.png" class="poster poster-alt" />
+        <% } %>
+        <hr>
+        <h2><%= original_title %></h2>
+        <% if (overview != null || overview != 'undefined') { %>
+          <h3 class="a-left">Overview:</h3>
+          <p class="a-left"><%= overview %></p>
+        <% } %>
+
+        <% if (runtime != null || runtime != 'undefined') { %>
+          <p class="a-left"><strong>Runtime:</strong> <%= runtime %> min.</p>
+        <% } %>
+
+        <% if (release_date != null || release_date != 'undefined') { %>
+          <p class="a-left"><strong>Release date:</strong> <%= release_date %></p>
+        <% } %>
+
+        <% if (genres.length > 0) {
+          var gnrs = '';
+          _.each(genres, function(genre) {
+            gnrs += genre.name + ', ';
+          });
+          gnrs = gnrs.slice(0, -2); %>
+          <p class="a-left"><strong>Genres: </strong><%= gnrs %></p>
+        <% } %>
+
+        <% if (production_companies.length > 0) {
+          var prod_comp = '';
+          _.each(production_companies, function(company) {
+            prod_comp += company.name + ', ';
+          });
+          prod_comp = prod_comp.slice(0, -2); %>
+          <p class="a-left"><strong>Production companies:</strong><br /><%= prod_comp %></p>
+        <% } %>
+
+        <% if (production_countries.length > 0) {
+          var prod_count = '';
+          _.each(production_countries, function(country) {
+            prod_count += country.name + ', ';
+          });
+          prod_count = prod_count.slice(0, -2); %>
+          <p class="a-left"><strong>Production countries:</strong><br /><%= prod_count %></p>
+        <% } %>
+      </div>
+      <div class="card">
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <% if (poster != null) { %>
@@ -366,6 +415,7 @@
 
     <script data-main="js/main" src="js/libs/require/require.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAAjjxx_UnXEcBOQF2ngFZLq9N5GT_Cf_Q&sensor=false&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.0.1/jquery.rateyo.min.js"></script>
   </head>
   <body>
   </body>
