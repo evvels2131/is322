@@ -36,7 +36,6 @@ define([
 
       this.model.fetch({
         success: function(reponse) {
-
           // Check if the movie is in favorites then set appropriate values
           if (self.checkIfFavorite(self.model.get('id'))) {
             self.model.set('isFavorite', true);
@@ -62,6 +61,7 @@ define([
           });
 
           $(self.el).html(self.template({
+            isFavorite: self.model.get('isFavorite'),
             content: self.content
           }));
 
@@ -96,7 +96,8 @@ define([
       return isFavorite;
     },
 
-    addToFavorites: function() {
+    addToFavorites: function(e) {
+      e.preventDefault();
       // Set the isFavorite attribute to true
       this.model.set('isFavorite', true);
 
@@ -148,7 +149,8 @@ define([
       }
     },
 
-    removeFromFavorites: function() {
+    removeFromFavorites: function(e) {
+      e.preventDefault();
       // Set the isFavorite attribute to false
       this.model.set('isFavorite', false);
 
