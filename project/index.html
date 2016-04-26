@@ -231,8 +231,15 @@
     <!-- Used as the page to display details about a movie -->
     <script type="text/template" id="movie-details-template">
       <div data-role="header" data-position="fixed">
-        <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
+        <a href="#" data-rel="back" data-role="none"><img src="images/back.png" class="back-button-icon" /></a>
         <h1>Details</h1>
+        <a href="#" data-role="none" style="text-align: right">
+          <% if (isFavorite) { %>
+            <img src="images/favorite.png" class="favorite-icon" id="remove_from_fav" />
+          <% } else { %>
+            <img src="images/not_favorite.png" class="favorite-icon" id="add_to_fav" />
+          <% } %>
+        </a>
       </div>
 
       <div role="main" class="ui-content movie-details-content">
