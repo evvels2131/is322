@@ -49,6 +49,7 @@ define([
             trailer_source = self.model.attributes.trailers.youtube[0].source;
           }
 
+          console.log(self.model.toJSON());
           self.content = template({
             original_title: self.model.get('original_title'),
             overview: self.model.get('overview'),
@@ -57,7 +58,11 @@ define([
             trailer_source: trailer_source,
             similar: self.model.get('similar'),
             credits: self.model.get('credits'),
-            poster: self.model.get('poster_path')
+            poster: self.model.get('poster_path'),
+            genres: self.model.get('genres'),
+            production_companies: self.model.get('production_companies'),
+            production_countries: self.model.get('production_countries'),
+            runtime: self.model.get('runtime'),
           });
 
           $(self.el).html(self.template({
