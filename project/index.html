@@ -345,22 +345,13 @@
           prod_count = prod_count.slice(0, -2); %>
           <p class="a-left"><strong>Production countries:</strong><br /><%= prod_count %></p>
         <% } %>
-      </div>
 
-
-      <div class="card">
-        <%
-        %>
-        <h2><%= original_title %></h2>
-        <hr>
-        <p class="a-left"><b>Release Date:</b> <%= release_date %></p>
-        <p class="a-left"><%= overview %></p>
-        <p class="a-left"><b>Cast Members:</b></p>
         <div data-role="main" class="ui-content">
           <ul data-role="listview">
             <%
-            if (credits.cast.length > 0) {
-              if (credits.cast.length > 5) {
+            if (credits.cast.length > 0) { %>
+              <p class="a-left"><strong>Cast members:</strong></p>
+              <% if (credits.cast.length > 5) {
                 var cast = []
                 for (var i = 0; i < 5; i++) {
                   cast[i] = credits.cast[i];
