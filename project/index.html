@@ -346,22 +346,7 @@
           <p class="a-left"><strong>Production countries:</strong><br /><%= prod_count %></p>
         <% } %>
       </div>
-      <div class="card">
-        <div class="ui-grid-a">
-          <div class="ui-block-a">
-            <% if (poster != null) { %>
-              <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster_image_movie_details" />
-            <% } %>
-          </div>
-          <div class="ui-block-b" class="icon">
-            <% if (is_favorite) { %>
-              <a link="#" id="remove_from_fav"><img src="images/icons/heart_filled.png" class="heart_icon"/></a>
-            <% } else { %>
-              <a link="#" id="add_to_fav"><img src="images/icons/heart_empty.png" class="heart_icon" /></a>
-            <% } %>
-          </div>
-        </div>
-      </div>
+
 
       <div class="card">
         <%
@@ -374,13 +359,22 @@
         <div data-role="main" class="ui-content">
           <ul data-role="listview">
             <%
-            var cast = [];
-            for (var i = 0; i < 4; i++) {
-              cast[i] = credits.cast[i];
+            if (credits.cast.length > 0) {
+              if (credits.cast.length > 5) {
+                var cast = []
+                for (var i = 0; i < 5; i++) {
+                  cast[i] = credits.cast[i];
+                }
+                _.each(cast, function(member) { %>
+                  <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
+                <% });
+              } else {
+                _.each(credits.cast, function(member) { %>
+                  <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
+                <% });
+              }
             }
-            _.each(cast, function(member) { %>
-                <li><a href="#person/<%= member.id %>"><%= member.name %></a></li>
-            <% }); %>
+            %>
           </ul>
         </div>
       </div>
