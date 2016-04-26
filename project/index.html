@@ -370,32 +370,33 @@
                 } %>
             </ul>
         <% } %>
-      </div>
+        <hr>
+        <% if (trailer_source !== 'undefined') { %>
+              <p class="a-left"><strong>Trailer</strong></p>
+              <iframe src="https://youtube.com/embed/<%= trailer_source %>" class="trailer"
+                allowfullscreen></iframe>
+        <% } %>
 
-      <% if (trailer_source !== 'undefined') { %>
-        <div class="card">
-          <p class="heading_card">Trailer</p>
-          <iframe src="https://youtube.com/embed/<%= trailer_source %>" class="trailer"
-            allowfullscreen></iframe>
-        </div>
-      <% } %>
-
-      <% if (similar.total_results > 0) { %>
-        <div id="similar_movies">
-        <p class="heading_card">Similar Movies</p>
         <%
-        var similar_movies = [];
-        for (var i = 0; i < 10; i++) {
-          similar_movies[i] = similar.results[i];
-        }
-        _.each(similar_movies, function(movie) {
-            if (movie.poster_path != null) { %>
+        if (similar.results.length > 0) { %>
+          <p class="a-left"><strong>Similar Movies:</strong></p> <%
+          if (similar.results.length > 10) {
+            var similar_movies = [];
+            for (var i = 0; i < 10; i++) {
+              similar_movies[i] = similar.results[i];
+            }
+            _.each(similar_movies, function(movie) { %>
               <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
-                class="similar_poster"></img></a>
-            <%}
-          }); %>
-        </div>
-      <% } %>
+                class="similar_poster"></img></a> <%
+            });
+          } else {
+            _.each(similar.results, function(movie) { %>
+              <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                class="similar_poster"></img></a> <%
+            });
+          }
+        } %>
+      </div>
     </script>
     <!-- /Movie Details Template -->
 
