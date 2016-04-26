@@ -95,6 +95,13 @@
   text-decoration: none;
 }
 
+/* Actor details page */
+.actor-details-content {
+  background-color: #3498db;
+  text-align: center;
+  height: 100vh;
+}
+
 /* Used for styling the trailer */
 .trailer {
 
