@@ -62,7 +62,7 @@ define([
             genres: self.model.get('genres'),
             production_companies: self.model.get('production_companies'),
             production_countries: self.model.get('production_countries'),
-            runtime: self.model.get('runtime'),
+            runtime: self.model.get('runtime')
           });
 
           $(self.el).html(self.template({
