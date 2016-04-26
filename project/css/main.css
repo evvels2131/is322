@@ -95,6 +95,11 @@
   text-decoration: none;
 }
 
+/* Styling for the content section */
+.ui-content {
+  background-color: #3498db;
+}
+
 /* Actor details page */
 .actor-details-content {
   background-color: #3498db;
