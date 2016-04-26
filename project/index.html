@@ -377,7 +377,7 @@
                     cast[i] = credits.cast[i];
                   }
                   _.each(cast, function(member) { %>
-                    <li data-icon="arrow-r"><a href="#person/<%= member.id %>"><%= member.name %></a></li>
+                    <li data-icon="arrow-r" class="ui-alt-icon ui-nodisc-icon"><a href="#person/<%= member.id %>"><%= member.name %></a></li>
                   <% });
                 } else {
                   _.each(credits.cast, function(member) { %>
