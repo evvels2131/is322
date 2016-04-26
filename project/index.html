@@ -380,19 +380,23 @@
         <%
         if (similar.results.length > 0) { %>
           <p class="a-left"><strong>Similar Movies:</strong></p> <%
-          if (similar.results.length > 10) {
+          if (similar.results.length > 8) {
             var similar_movies = [];
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 8; i++) {
               similar_movies[i] = similar.results[i];
             }
-            _.each(similar_movies, function(movie) { %>
-              <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
-                class="similar_poster"></img></a> <%
+            _.each(similar_movies, function(movie) {
+              if (movie.poster_path != null) { %>
+                <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                  class="similar_poster"></img></a> <%
+              }
             });
           } else {
-            _.each(similar.results, function(movie) { %>
-              <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
-                class="similar_poster"></img></a> <%
+            _.each(similar.results, function(movie) {
+              if (movie.poster_path != null) { %>
+                <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>"
+                  class="similar_poster"></img></a> <%
+              }
             });
           }
         } %>
