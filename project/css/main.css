@@ -164,3 +164,27 @@
 .cast-members-list {
   padding: 15px 20px 20px 20px;
 }
+
+/* Info window theaters */
+#info-window .text {
+  font-size: 1.1em;
+}
+
+#info-window h2 {
+  font-size: 1.8em;
+}
+
+#info-window h3 {
+  font-size: 1.6em;
+}
+
+#info-window .reviews {
+  width: 95%;
+  line-height: 1.2em;
+}
+
+#info-window .name {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: blue;
+}

@@ -126,14 +126,33 @@ define([
              // Close all instances of infoWindow before opening a new one
              self.infoWindow.close();
 
-             // Display information about a movie theater in an infoWindow
-             var info = '<b><u>' + result.name + '</u></b><br >';
-             info = info.concat('<b>Address:</b> ' + result.vicinity + '<br />')
+             console.log(result);
+
+             var info_2 =   '<div id="info-window">';
+             info_2 = info_2.concat('<h2>' + result.name + '</h2>');
+             info_2 = info_2.concat('<p class="text">' + result.vicinity + '</p>');
              if (result.rating) {
-               info = info.concat('<b>Rating:</b> ' + result.rating + '<br />');
+               info_2 = info_2.concat('<p class="text"><strong>Rating:</strong> ' + result.rating + '</p>');
              }
-             info = info.concat('<b><a href="' + result.website + '">Website</a></b><br />');
-             self.infoWindow.setContent(info);
+             if (result.formatted_phone_number) {
+               info_2 = info_2.concat('<p class="text"><strong>Phone:</strong> ' + result.formatted_phone_number + '</p>');
+             }
+             if (result.website) {
+               info_2 = info_2.concat('<p class="text"><a href="' + result.website + '">' + result.website + '</a></p>');
+             }
+             if (result.reviews.length > 0) {
+               info_2 = info_2.concat('<h3>Reviews:</h3>');
+               if (result.reviews.length > 3) {
+                 for (var i = 0; i < 3; i++) {
+                   info_2 = info_2.concat('<p class="reviews name">' + result.reviews[i].author_name + '</p>');
+                   info_2 = info_2.concat('<p class="reviews">' + result.reviews[i].text.substring(0, 200) + '...</p>');
+                 }
+               }
+             }
+             info_2 = info_2.concat('</div>');
+
+             // Display information about a movie theater in an infoWindow
+             self.infoWindow.setContent(info_2);
              self.infoWindow.open(self.map, marker);
            });
          });
