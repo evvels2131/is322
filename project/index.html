@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
     <link rel="stylesheet" href="css/main.css">
 
+    <!-- Navigation -->
+    <script type="text/template" id="main">
+
+      <!-- The rest of the page goes here -->
+      <%= content %>
+
+      <div data-role="footer" class="nav-glyphish" data-theme="a" data-position="fixed">
+        <div data-role="navbar" class="nav-glyphish" data-grid="c">
+          <ul>
+            <li>
+              <a href="#" id="movie-icon" data-icon="custom" class="ui-nodisc-icon">Movies</a>
+              <a href="#search" id="search-icon" data-icon="custom" class="ui-nodisc-icon">Search</a>
+              <a href="#theaters" id="theaters-icon" data-icon="custom" class="ui-nodisc-icon">Theaters</a>
+              <a href="#discover" id="discover-icon" data-icon="custom" class="ui-nodisc-icon">Discover</a>
+          </ul>
+        </div>
+      </div>
+    </script>
+
+    <!-- Homepage; includes footer and content -->
+    <script type="text/template" id="homepage">
+    </script>
+
     <!-- Home Template -->
     <script type="text/template" id="home">
       <div data-role="header" data-position="fixed">
