@@ -176,11 +176,12 @@
         <h1>Discover</h1>
       </div>
 
-      <div role="main" class="ui-content">
+      <div role="main" class="ui-content height-oneh">
         <% if (content === 'undefined') { %>
           <div class="card">
-            <h3 class="warning">Something went terribly wrong!</h3>
-            <p>We are unable to get the data for you at the moment.</p>
+            <h3 class="warning">Looks like you haven't liked any movies yet!</h3>
+            <p>Please browse through some of the movies and click on the heart icon
+              to get recommendations.</p>
             <img src="images/broken.png" />
           </div>
         <% } else {

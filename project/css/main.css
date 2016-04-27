@@ -100,6 +100,10 @@
   background-color: #3498db;
 }
 
+.height-oneh {
+  height: 100vh;
+}
+
 /* Actor details page */
 .actor-details-content {
   background-color: #3498db;
