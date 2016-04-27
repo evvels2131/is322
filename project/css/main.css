@@ -13,7 +13,7 @@
 }
 
 .category-btn {
-  font-size: 0.8em;
+  font-size: 1.3em;
 }
 
 /* Styling for the back button icon */
@@ -196,7 +196,7 @@
 
 /* Navigation styling */
 .nav-glyphish .ui-btn {
-  padding-top: 40px !important;
+  padding-top: 35px !important;
 }
 
 .nav-glyphish .ui-btn:after {
