@@ -90,6 +90,7 @@ define([
 
       //this.title = $('#search-movie-input').val();
       /*var title = $('#search-movie-input').val();
+      console.log(document.getElementById('search-movie-input'));
       console.log(title);
 
       if (title != '') {
