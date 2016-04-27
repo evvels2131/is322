@@ -44,7 +44,7 @@
   position : absolute !important;
   top : 0px !important;
   right : 0;
-  bottom : 50px !important;
+  bottom : 65px !important;
   left : 0 !important;
 }
 
@@ -192,4 +192,60 @@
   font-size: 1.1em;
   font-weight: bold;
   color: blue;
+}
+
+/* Navigation styling */
+.nav-glyphish .ui-btn {
+  padding-top: 40px !important;
+}
+
+.nav-glyphish .ui-btn:after {
+  width: 30px!important;
+  height: 30px!important;
+  margin-left: -15px !important;
+  box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  -webkit-box-shadow: none!important;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+#movie-icon:after {
+  background-image: url("../images/nav-icons/movie.png");
+  background-size: 24px 22px;
+}
+
+#movie-icon-active:after {
+  background-image: url("../images/nav-icons/movie-active.png");
+  background-size: 24px 22px;
+}
+
+#search-icon:after {
+  background-image: url("../images/nav-icons/search.png");
+  background-size: 24px 22px;
+}
+
+#search-icon-active:after {
+  background-image: url("../images/nav-icons/search-active.png");
+  background-size: 24px 22px;
+}
+
+#theaters-icon:after {
+  background-image: url("../images/nav-icons/theater.png");
+  background-size: 24px 22px;
+}
+
+#theaters-icon-active:after {
+  background-image: url("../images/nav-icons/theater-active.png");
+  background-size: 24px 22px;
+}
+
+#discover-icon:after {
+  background-image: url("../images/nav-icons/star.png");
+  background-size: 24px 22px;
+}
+
+#discover-icon-active:after {
+  background-image: url("../images/nav-icons/star-active.png");
+  background-size: 24px 22px;
 }
