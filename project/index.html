@@ -126,12 +126,14 @@
         </div>
       </div>
 
-      <div role="main" class="ui-content">
+      <div role="main" class="ui-content height-100vh">
         <% if (content === 'undefined') { %>
           <div class="card">
-            <h3 class="warning">Something went terribly wrong!</h3>
+            <h3 class="warning center">Something went terribly wrong!</h3>
             <p>We are unable to get the data for you at the moment.</p>
-            <img src="images/broken.png" />
+            <div class="center">
+              <img src="images/broken.png" />
+            </div>
           </div>
         <% } else {
           print(content);
@@ -176,13 +178,15 @@
         <h1>Discover</h1>
       </div>
 
-      <div role="main" class="ui-content height-oneh">
+      <div role="main" class="ui-content height-100vh">
         <% if (content === 'undefined') { %>
           <div class="card">
-            <h3 class="warning">Looks like you haven't liked any movies yet!</h3>
+            <h3 class="info center">Looks like you haven't liked any movies yet!</h3>
             <p>Please browse through some of the movies and click on the heart icon
               to get recommendations.</p>
-            <img src="images/broken.png" />
+              <div class="center">
+                <img src="images/like.png" />
+              </div>
           </div>
         <% } else {
           print(content);
@@ -209,7 +213,7 @@
         <% if (poster_path != null) { %>
           <img src="http://image.tmdb.org/t/p/w500<%= poster_path %>" class="poster" />
         <% } else { %>
-          <img src="images/movie_alternative.png" class="poster poster-alt" />
+          <img src="images/poster-alt.png" class="poster poster-alt" />
         <% } %>
         <h2><%= original_title %></h2>
         <p><b>Vote Average:</b> <%= vote_average %></p>
@@ -217,27 +221,6 @@
       </a>
     </script>
     <!-- /Movie Template -->
-
-    <!-- Person Details Page -->
-    <script type="text/template" id="person-details-template">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back" data-role="none" class="back"><img src="images/back.png" class="back-button-icon" /></a>
-        <h1>Details</h1>
-      </div>
-
-      <div role="main" class="ui-content actor-details-content">
-        <% if (content === 'undefined') { %>
-          <div class="card">
-            <h3 class="warning">Something went terribly wrong!</h3>
-            <p>We are unable to get the data for you at the moment.</p>
-            <img src="images/broken.png" />
-          </div>
-        <% } else {
-          print(content);
-        } %>
-      </div>
-    </script>
-    <!-- /Person Details Page -->
 
     <!-- Movie Details Page -->
     <!-- Used as the page to display details about a movie -->
@@ -254,12 +237,14 @@
         </a>
       </div>
 
-      <div role="main" class="ui-content movie-details-content">
+      <div role="main" class="ui-content height-100vh">
         <% if (content === 'undefined') { %>
           <div class="card">
-            <h3 class="warning">Something went terribly wrong!</h3>
+            <h3 class="warning center">Something went terribly wrong!</h3>
             <p>We are unable to get the data for you at the moment.</p>
-            <img src="images/broken.png" />
+            <div class="center">
+              <img src="images/broken.png" />
+            </div>
           </div>
         <% } else {
           print(content);
@@ -268,35 +253,61 @@
     </script>
     <!-- /Movie Details Page -->
 
+    <!-- Person Details Page -->
+    <script type="text/template" id="person-details-template">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back" data-role="none" class="back"><img src="images/back.png" class="back-button-icon" /></a>
+        <h1>Details</h1>
+      </div>
+
+      <div role="main" class="ui-content height-100vh">
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning center">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the moment.</p>
+            <div class="center">
+              <img src="images/broken.png" />
+            </div>
+          </div>
+        <% } else {
+          print(content);
+        } %>
+      </div>
+    </script>
+    <!-- /Person Details Page -->
+
     <!-- Person Details Temlate -->
     <script type="text/template" id="show-person-details-template">
       <div class="card">
         <div class="ui-grid-a">
           <div class="ui-block-a">
-            <h2 class="a-left"><%= name %></h2>
-            <% if (birthday != null) { %>
-              <p class="a-left"><b>Date of birth:</b></p>
-              <p class="a-left"><%= birthday %></p>
+            <h2><%= name %></h2>
+            <% if (birthday != null && birthday != '') { %>
+              <p><b>Date of birth:</b></p>
+              <p><%= birthday %></p>
             <% } %>
           </div>
           <div class="ui-block-b">
             <% if (profile_image != null) { %>
-              <img src="http://image.tmdb.org/t/p/w500<%= profile_image %>" class="actor_image"/>
-            <% } %>
+              <img src="http://image.tmdb.org/t/p/w500<%= profile_image %>" class="actor_img" />
+            <% } else { %>
+              <img src="images/actor-alt.png" class="actor_img" /> <%
+            }%>
           </div>
         </div>
         <% if (biography != '' && biography != null) { %>
-          <p class="a-left"><b>Biography:</b></p> <%
+          <p><b>Biography:</b></p> <%
           if (biography.length > 600) { %>
-            <p class="a-left"><%= biography.substring(0, 600) %>...</p> <%
+            <p><%= biography.substring(0, 600) %>...</p> <%
           } else { %>
-            <p class="a-left"><%= biography %></p> <%
+            <p><%= biography %></p> <%
           }
         } %>
 
         <%
           if (movie_credits.cast.length > 0) { %>
-            <p class="a-left"><strong>Movies:</strong></p> <%
+            <div class="center">
+            <p><strong>Movies:</strong></p> <%
             if (movie_credits.cast.length > 12) {
               var movies = [];
               for (var i = 0; i < 12; i++) {
@@ -315,7 +326,8 @@
                     class="similar_poster"></img></a> <%
                 }
               });
-            }
+            } %>
+          </div> <%
           }
         %>
       </div>
@@ -328,28 +340,28 @@
       <div class="card">
         <div class="ui-grid-a">
           <div class="ui-block-a">
-            <h2><%= original_title %></h2>
+            <h2 class="center"><%= original_title %></h2>
           </div>
           <div class="ui-block-b">
             <% if (poster != null) { %>
-              <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster_image_movie_details" />
+              <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster-movie-details" />
             <% } else { %>
-              <img src="images/movie_alternative.png" class="poster poster-alt" />
+              <img src="images/poster-alt.png" class="poster-movie-details" />
             <% } %>
           </div>
         </div>
         <hr>
         <% if (overview != null || overview != 'undefined') { %>
-          <h3 class="a-left">Overview:</h3>
-          <p class="a-left"><%= overview %></p>
+          <h3>Overview:</h3>
+          <p><%= overview %></p>
         <% } %>
 
         <% if (runtime != null || runtime != 'undefined') { %>
-          <p class="a-left"><strong>Runtime:</strong> <%= runtime %> min.</p>
+          <p><strong>Runtime:</strong> <%= runtime %> min.</p>
         <% } %>
 
         <% if (release_date != null || release_date != 'undefined') { %>
-          <p class="a-left"><strong>Release date:</strong> <%= release_date %></p>
+          <p><strong>Release date:</strong> <%= release_date %></p>
         <% } %>
 
         <% if (genres.length > 0) {
@@ -358,7 +370,7 @@
             gnrs += genre.name + ', ';
           });
           gnrs = gnrs.slice(0, -2); %>
-          <p class="a-left"><strong>Genres: </strong><%= gnrs %></p>
+          <p><strong>Genres: </strong><%= gnrs %></p>
         <% } %>
 
         <% if (production_companies.length > 0) {
@@ -367,7 +379,7 @@
             prod_comp += company.name + ', ';
           });
           prod_comp = prod_comp.slice(0, -2); %>
-          <p class="a-left"><strong>Production companies:</strong><br /><%= prod_comp %></p>
+          <p><strong>Production companies:</strong><br /><%= prod_comp %></p>
         <% } %>
 
         <% if (production_countries.length > 0) {
@@ -376,11 +388,11 @@
             prod_count += country.name + ', ';
           });
           prod_count = prod_count.slice(0, -2); %>
-          <p class="a-left"><strong>Production countries:</strong><br /><%= prod_count %></p>
+          <p><strong>Production countries:</strong><br /><%= prod_count %></p>
         <% } %>
 
         <% if (credits.cast.length > 0) { %>
-            <p class="a-left"><strong>Cast members:</strong></p>
+            <p><strong>Cast members:</strong></p>
             <ul data-role="listview" class="cast-members-list">
               <% if (credits.cast.length > 5) {
                   var cast = []
@@ -399,14 +411,16 @@
         <% } %>
         <hr>
         <% if (trailer_source !== 'undefined') { %>
-              <p class="a-left"><strong>Trailer</strong></p>
-              <iframe src="https://youtube.com/embed/<%= trailer_source %>" class="trailer"
-                allowfullscreen></iframe>
+              <p><strong>Trailer</strong></p>
+              <div class="center">
+                <iframe src="https://youtube.com/embed/<%= trailer_source %>" allowfullscreen></iframe>
+              </div>
         <% } %>
 
         <%
         if (similar.results.length > 0) { %>
-          <p class="a-left"><strong>Similar Movies:</strong></p> <%
+          <p><strong>Similar Movies:</strong></p>
+          <div class="center"> <%
           if (similar.results.length > 8) {
             var similar_movies = [];
             for (var i = 0; i < 8; i++) {
@@ -425,7 +439,8 @@
                   class="similar_poster"></img></a> <%
               }
             });
-          }
+          } %>
+        </div> <%
         } %>
       </div>
     </script>

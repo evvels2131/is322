@@ -1,3 +1,7 @@
+.info {
+  color: rgb(15, 118, 241);
+}
+
 /* Poster picture on the movies page */
 .poster {
   width: 65px;
@@ -65,7 +69,6 @@
   margin: 10px auto 10px auto;
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
-  text-align: center;
 }
 
 .heading_card {
@@ -87,36 +90,19 @@
   width: 50px;
 }
 
-/* Used to set up a background in movie details content */
-.movie-details-content {
-  background-color: #3498db;
-  text-align: center;
-  font-weight: 300;
-  text-decoration: none;
-}
-
 /* Styling for the content section */
 .ui-content {
-  background-color: #3498db;
+  background-color: rgb(217, 234, 255);
+  text-align: left;
 }
 
-.height-oneh {
+/* Set the height to 100 vertical height */
+.height-100vh {
   height: 100vh;
 }
 
-/* Actor details page */
-.actor-details-content {
-  background-color: #3498db;
-  text-align: center;
-  height: 100vh;
-}
-
-/* Used for styling the trailer */
-.trailer {
-
-}
-
-.a-left {
+/* Text align left */
+.text-align-l {
   text-align: left;
 }
 
@@ -124,21 +110,18 @@
   color: red;
 }
 
-/* Used for displaying posters */
-.poster_images {
-  width: 75px;
-}
-
-/* Used for displaying actors image */
-.actor_image {
+/* Styling for the actors image on the actor details page */
+.actor_img {
   width: 90px;
   padding-top: 20px;
   border-radius: 5px;
 }
 
-.poster_image_movie_details {
+/* Styling for the poster on the movie details page */
+.poster-movie-details {
   width: 80px;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 /* Overriding the width property of jquery mobile ui-grids */
