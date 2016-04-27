@@ -11,7 +11,7 @@
     <!-- Navigation -->
     <script type="text/template" id="main">
 
-      <!-- The rest of the page goes here -->
+      <!-- The rest of the page goes here; that is the content and header -->
       <%= content %>
 
       <div data-role="footer" class="nav-glyphish" data-theme="a" data-position="fixed">
@@ -29,6 +29,28 @@
 
     <!-- Homepage; includes footer and content -->
     <script type="text/template" id="homepage">
+      <div data-role="header" data-position="fixed">
+        <div data-role="controlgroup" data-type="horizontal" class="center">
+          <a href="#" class="ui-btn category-btn">Now Playing</a>
+          <a href="#top_rated" class="ui-btn category-btn">Top Rated</a>
+          <a href="upcoming" class="ui-btn category-btn">Upcoming</a>
+        </div>
+      </div>
+
+      <!-- Actual content -->
+      <div role="main" class="ui-content">
+        <% if (content === 'undefined') { %>
+          <div class="card">
+            <h3 class="warning">Something went terribly wrong!</h3>
+            <p>We are unable to get the data for you at the momemnt.</p>
+            <div class="center">
+              <img src="images/broken.png" />
+            </div>
+          </div> <%
+        } else {
+          print(content);
+        } %>
+      </div>
     </script>
 
     <!-- Home Template -->
