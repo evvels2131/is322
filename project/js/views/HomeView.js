@@ -10,11 +10,16 @@ define([
 
     template: _.template($('#home').html()),
 
-    initialize: function() {
-      console.log('HomeView Initialized');
+    initialize: function(options) {
+
+      // Check if category is passed, if not, display now_playing
+      if (options.category == null) {
+        this.category = 'now_playing';
+      } else {
+        this.category = options.category;
+      }
 
       this.content = 'undefined';
-      this.category = 'now_playing';
       this.page = 1;
 
       this.moviesCollection = new MoviesCollection({
