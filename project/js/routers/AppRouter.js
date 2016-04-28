@@ -4,8 +4,6 @@ define([
   '../views/HomeView',
   '../views/MovieDetailsView',
   '../views/PersonView',
-  '../views/TopRatedView',
-  '../views/UpcomingView',
   '../views/SearchView',
   '../views/TheatersView',
   '../views/DiscoverView'
@@ -14,8 +12,8 @@ define([
 
     routes: {
       '': 'home',
-      ':category': 'home',
-      
+      'home/:category': 'home',
+
       'movie/:id': 'movie',
       'person/:id': 'person',
 
@@ -34,6 +32,7 @@ define([
 
     home: function(category) {
       console.log('#home');
+      console.log(category);
       this.changePage(new HomeView({ category: category }));
     },
 
