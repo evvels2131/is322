@@ -14,10 +14,8 @@ define([
 
     routes: {
       '': 'home',
-      'now_playing': 'home',
-      'top_rated': 'top_rated',
-      'upcoming': 'upcoming',
-
+      ':category': 'home',
+      
       'movie/:id': 'movie',
       'person/:id': 'person',
 
@@ -34,19 +32,9 @@ define([
       this.firstPage = true;
     },
 
-    home: function() {
+    home: function(category) {
       console.log('#home');
-      this.changePage(new HomeView());
-    },
-
-    top_rated: function() {
-      console.log('#top_rated');
-      this.changePage(new TopRatedView());
-    },
-
-    upcoming: function() {
-      console.log('#upcoming');
-      this.changePage(new UpcomingView());
+      this.changePage(new HomeView({ category: category }));
     },
 
     // Movie Details Page
@@ -80,7 +68,8 @@ define([
       $(page.el).attr('data-role', 'page');
       page.render();
       $('body').append($(page.el));
-      var transition = $.mobile.defaultPageTransition;
+      var transition = 'none';
+      //var transition = $.mobile.defaultPageTransition;
 
       if (this.firstPage) {
         transition = 'none';
