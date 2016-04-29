@@ -6,8 +6,7 @@ require.config({
     'jquery': 'libs/jquery/jquery',
     'jquerymobile': 'libs/jquerymobile/jquerymobile',
     'underscore': 'libs/underscore/underscore',
-    'backbone': 'libs/backbone/backbone',
-    'templates': '../templates'
+    'backbone': 'libs/backbone/backbone'
   },
 
   // Set the configuration for third party scripts that are not AMD
