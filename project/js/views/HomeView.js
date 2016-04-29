@@ -3,20 +3,31 @@ define([
   'underscore',
   'backbone',
   'collections/MoviesCollection',
-  'views/movies/MoviesView'
-], function($, _, Backbone, MoviesCollection, MoviesView) {
+  'views/movies/MoviesView',
+  'collections/MenuItemCollection',
+  'views/menu/MenuView',
+  'text!templates/HomeView.html',
+  'text!templates/TopRatedTemplate.html',
+  'text!templates/UpcomingTemplate.html'
+], function($, _, Backbone, MoviesCollection, MoviesView, MenuItemCollection, 
+      MenuView, homeViewTemplate, topRatedTemplate, upcomingTemplate) {
 
   window.HomeView = Backbone.View.extend({
 
-    template: _.template($('#home').html()),
+    template: _.template(homeViewTemplate),
 
     initialize: function(options) {
-
       // Check if category is passed, if not, display now_playing
       if (options.category == null) {
         this.category = 'now_playing';
       } else {
         this.category = options.category;
+      }
+
+      if (this.category == 'top_rated') {
+        this.template = _.template(topRatedTemplate);
+      } else if (this.category == 'upcoming') {
+        this.template = _.template(upcomingTemplate);
       }
 
       this.content = 'undefined';
@@ -53,7 +64,8 @@ define([
           console.log('Error: ' + error);
         }
       });
+
       return this;
-    }
+    },
   });
 });
