@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="ui-grid-a">
+    <div class="ui-block-a">
+      <h2><%= name %></h2>
+      <% if (birthday != null && birthday != '') { %>
+        <p><b>Date of birth:</b></p>
+        <p><%= birthday %></p>
+      <% } %>
+    </div>
+    <div class="ui-block-b">
+      <% if (profile_image != null) { %>
+        <img src="http://image.tmdb.org/t/p/w500<%= profile_image %>" class="actor_img" />
+      <% } else { %>
+        <img src="images/actor-alt.png" class="actor_img" /> <%
+      }%>
+    </div>
+  </div>
+  <% if (biography != '' && biography != null) { %>
+    <p><b>Biography:</b></p> <%
+    if (biography.length > 600) { %>
+      <p><%= biography.substring(0, 600) %>...</p> <%
+    } else { %>
+      <p><%= biography %></p> <%
+      }
+    } %>
+
+    <% if (movie_credits.cast.length > 0) { %>
+      <div class="center">
+      <p><strong>Movies:</strong></p> <%
+      if (movie_credits.cast.length > 12) {
+        var movies = [];
+        for (var i = 0; i < 12; i++) {
+          movies[i] = movie_credits.cast[i];
+        }
+        _.each(movies, function(movie) {
+          if (movie.poster_path != null) { %>
+            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster"></img></a> <%
+          }
+        });
+      } else {
+        _.each(movie_credits.cast, function(movie) {
+          if (movie.poster_path != null) { %>
+            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster"></img></a> <%
+          }
+        });
+      } %>
+      </div> <% } %>
+</div>

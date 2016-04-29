@@ -3,8 +3,9 @@ define([
   'underscore',
   'backbone',
   'models/PersonModel',
-  'text!templates/person/PersonViewTemplate.html'
-], function($, _, Backbone, PersonModel, personViewTemplate) {
+  'text!templates/person/PersonViewTemplate.html',
+  'text!templates/person/PersonDetailedTemplate.html'
+], function($, _, Backbone, PersonModel, personViewTemplate, personDetailedTemplate) {
 
   window.PersonView = Backbone.View.extend({
 
@@ -27,7 +28,7 @@ define([
     render: function() {
       var self = this;
 
-      var template = _.template($('#show-person-details-template').html(), {});
+      var template = _.template(personDetailedTemplate);
 
       this.model.fetch({
         success: function(response) {
