@@ -23,9 +23,8 @@ define([
     },
 
     initialize: function() {
-      $('.back').live('click', function(event) {
+      $('body').on('click', '#back', function() {
         window.history.back();
-        return false;
       });
       this.firstPage = true;
     },
