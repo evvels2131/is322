@@ -3,12 +3,13 @@ define([
   'underscore',
   'backbone',
   'collections/DiscoverMoviesCollection',
-  'views/movies/MoviesView'
-], function($, _, Backbone, DiscoverMoviesCollection, MoviesView) {
+  'views/movies/MoviesView',
+  'text!templates/DiscoverViewTemplate.html'
+], function($, _, Backbone, DiscoverMoviesCollection, MoviesView, discoverViewTemplate) {
 
   window.DiscoverView = Backbone.View.extend({
 
-    template: _.template($('#discover').html()),
+    template: _.template(discoverViewTemplate),
 
     initialize: function() {
       console.log('DiscoverView Initialized');
