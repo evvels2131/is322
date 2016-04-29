@@ -2,12 +2,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/PersonModel'
-], function($, _, Backbone, PersonModel) {
+  'models/PersonModel',
+  'text!templates/person/PersonViewTemplate.html'
+], function($, _, Backbone, PersonModel, personViewTemplate) {
 
   window.PersonView = Backbone.View.extend({
 
-    template: _.template($('#person-details-template').html()),
+    template: _.template(personViewTemplate),
 
     initialize: function(options) {
       console.log('PersonView Initialized');

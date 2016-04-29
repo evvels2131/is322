@@ -8,31 +8,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- Person Details Page -->
-    <script type="text/template" id="person-details-template">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-role="none" id="back">
-          <img src="images/back.png" class="back-button-icon" />
-        </a>
-        <h1>Details</h1>
-      </div>
-
-      <div role="main" class="ui-content height-100vh">
-        <% if (content === 'undefined') { %>
-          <div class="card">
-            <h3 class="warning center">Something went terribly wrong!</h3>
-            <p>We are unable to get the data for you at the moment.</p>
-            <div class="center">
-              <img src="images/broken.png" />
-            </div>
-          </div>
-        <% } else {
-          print(content);
-        } %>
-      </div>
-    </script>
-    <!-- /Person Details Page -->
-
     <!-- Person Details Temlate -->
     <script type="text/template" id="show-person-details-template">
       <div class="card">
