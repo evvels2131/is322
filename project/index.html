@@ -8,22 +8,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- Movie Template -->
-    <!-- Used as a list item in the HomeView list of movies -->
-    <script type="text/template" id="movie-template">
-      <a href="#movie/<%= id %>">
-        <% if (poster_path != null) { %>
-          <img src="http://image.tmdb.org/t/p/w500<%= poster_path %>" class="poster" />
-        <% } else { %>
-          <img src="images/poster-alt.png" class="poster poster-alt" />
-        <% } %>
-        <h2><%= original_title %></h2>
-        <p><b>Vote Average:</b> <%= vote_average %></p>
-        <p><b>Release Date:</b> <%= release_date %></p>
-      </a>
-    </script>
-    <!-- /Movie Template -->
-
     <!-- Movie Details Page -->
     <!-- Used as the page to display details about a movie -->
     <script type="text/template" id="movie-details-template">

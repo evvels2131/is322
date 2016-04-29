@@ -1,8 +1,9 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone) {
+  'backbone',
+  'text!../../templates/movie/MovieTemplate.html'
+], function($, _, Backbone, movieTemplate) {
   var MovieView = Backbone.View.extend({
 
     tagName: 'li',
@@ -11,10 +12,11 @@ define([
       'data-icon': 'false'
     },
 
-    render: function() {
-      var template = _.template($('#movie-template').html(), {});
+    template: _.template(movieTemplate),
 
-      $(this.el).html(template({
+    render: function() {
+
+      $(this.el).html(this.template({
         original_title: this.model.get('original_title'),
         poster_path: this.model.get('poster_path'),
         vote_average: this.model.get('vote_average'),
