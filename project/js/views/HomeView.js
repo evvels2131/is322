@@ -4,13 +4,11 @@ define([
   'backbone',
   'collections/MoviesCollection',
   'views/movies/MoviesView',
-  'collections/MenuItemCollection',
-  'views/menu/MenuView',
   'text!templates/HomeView.html',
   'text!templates/TopRatedTemplate.html',
   'text!templates/UpcomingTemplate.html'
-], function($, _, Backbone, MoviesCollection, MoviesView, MenuItemCollection, 
-      MenuView, homeViewTemplate, topRatedTemplate, upcomingTemplate) {
+], function($, _, Backbone, MoviesCollection, MoviesView, homeViewTemplate, 
+      topRatedTemplate, upcomingTemplate) {
 
   window.HomeView = Backbone.View.extend({
 
