@@ -3,12 +3,13 @@ define([
   'underscore',
   'backbone',
   'collections/SearchMovieCollection',
-  'views/movies/MoviesView'
-], function($, _, Backbone, SearchMovieCollection, MoviesView) {
+  'views/movies/MoviesView',
+  'text!templates/SearchViewTemplate.html'
+], function($, _, Backbone, SearchMovieCollection, MoviesView, searchViewTemplate) {
 
   window.SearchView = Backbone.View.extend({
 
-    template: _.template($('#search').html()),
+    template: _.template(searchViewTemplate),
 
     events: {
       'click #search-movie-btn': 'searchMovie'
