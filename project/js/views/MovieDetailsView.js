@@ -3,8 +3,10 @@ define([
   'underscore',
   'backbone',
   'models/MovieDetailsModel',
-  'text!templates/movie/MovieDetailsTemplate.html'
-], function($, _, Backbone, MovieDetailsModel, movieDetailsTemplate) {
+  'text!templates/movie/MovieDetailsTemplate.html',
+  'text!templates/movie/DetailedMovieTemplate.html'
+], function($, _, Backbone, MovieDetailsModel, movieDetailsTemplate,
+    detailedMovieTemplate) {
 
   window.MovieDetailsView = Backbone.View.extend({
 
@@ -33,7 +35,7 @@ define([
     render: function() {
       var self = this;
 
-      var template = _.template($('#show-movie-details-template').html(), {});
+      var template = _.template(detailedMovieTemplate);
 
       this.model.fetch({
         success: function(reponse) {
@@ -50,7 +52,6 @@ define([
             trailer_source = self.model.attributes.trailers.youtube[0].source;
           }
 
-          console.log(self.model.toJSON());
           self.content = template({
             original_title: self.model.get('original_title'),
             overview: self.model.get('overview'),
