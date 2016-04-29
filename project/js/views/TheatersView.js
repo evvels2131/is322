@@ -1,12 +1,13 @@
 define([
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone) {
+  'backbone',
+  'text!templates/TheatersViewTemplate.html'
+], function($, _, Backbone, theatersViewTemplate) {
 
   window.TheatersView = Backbone.View.extend({
 
-    template: _.template($('#theaters').html()),
+    template: _.template(theatersViewTemplate),
 
     initialize: function() {
       console.log('TheatersView Initialized');
