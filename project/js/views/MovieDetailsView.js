@@ -2,12 +2,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/MovieDetailsModel'
-], function($, _, Backbone, MovieDetailsModel) {
+  'models/MovieDetailsModel',
+  'text!templates/movie/MovieDetailsTemplate.html'
+], function($, _, Backbone, MovieDetailsModel, movieDetailsTemplate) {
 
   window.MovieDetailsView = Backbone.View.extend({
 
-    template: _.template($('#movie-details-template').html()),
+    template: _.template(movieDetailsTemplate),
 
     initialize: function(options) {
       console.log('MovieDetailsView Initialized');

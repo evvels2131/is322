@@ -8,39 +8,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- Movie Details Page -->
-    <!-- Used as the page to display details about a movie -->
-    <script type="text/template" id="movie-details-template">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-role="none" id="back">
-          <img src="images/back.png" class="back-button-icon" />
-        </a>
-        <h1>Details</h1>
-        <a href="#" data-role="none" style="text-align: right">
-          <% if (isFavorite) { %>
-            <img src="images/favorite.png" class="favorite-icon" id="remove_from_fav" />
-          <% } else { %>
-            <img src="images/not_favorite.png" class="favorite-icon" id="add_to_fav" />
-          <% } %>
-        </a>
-      </div>
-
-      <div role="main" class="ui-content height-100vh">
-        <% if (content === 'undefined') { %>
-          <div class="card">
-            <h3 class="warning center">Something went terribly wrong!</h3>
-            <p>We are unable to get the data for you at the moment.</p>
-            <div class="center">
-              <img src="images/broken.png" />
-            </div>
-          </div>
-        <% } else {
-          print(content);
-        } %>
-      </div>
-    </script>
-    <!-- /Movie Details Page -->
-
     <!-- Person Details Page -->
     <script type="text/template" id="person-details-template">
       <div data-role="header" data-position="fixed">
