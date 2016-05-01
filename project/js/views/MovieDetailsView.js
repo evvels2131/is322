@@ -119,18 +119,28 @@ define([
         }
       }
 
-      // Save to local storage
-      localStorageSave(this.model.get('id'), genres_array);
+      // Check if there are any actors available
+      var actors = [];
+      if (this.model.get('credits').cast.length > 0) {
+        for (var i = 0; i < 2; i++) {
+          actors[i] = this.model.get('credits').cast[i].id;
+        }
+      }
 
-      function localStorageSave(movie_id, genre_ids)
+      // Save to local storage
+      localStorageSave(this.model.get('id'), genres_array, actors);
+
+      function localStorageSave(movie_id, genre_ids, actors_ids)
       {
         var movie_array = [];
         var genre_array = [];
+        var actors_array = [];
 
         // If local storage not set, create it
-        if (localStorage.getItem('fav-movies') == null || localStorage.getItem('fav-genres') == null) {
+        if (localStorage.getItem('fav-movies') == null || localStorage.getItem('fav-genres') == null || localStorage.getItem('fav-actors')) {
           localStorage.setItem('fav-movies', JSON.stringify(movie_array));
           localStorage.setItem('fav-genres', JSON.stringify(genre_array));
+          localStorage.setItem('fav-actors', JSON.stringify(actors_array));
         }
 
         // Add movie information to local storage
@@ -150,6 +160,18 @@ define([
             if (genre_array.indexOf(genre_ids[i]) == -1) {
               genre_array.push(genre_ids[i]);
               localStorage.setItem('fav-genres', JSON.stringify(genre_array));
+            }
+          }
+        }
+
+        // Check to see if there are any actors, if so, store them in local storage
+        if (actors_ids.length > 0) {
+          actors_array = JSON.parse(localStorage.getItem('fav-actors'));
+
+          for (var i = 0; actors_ids.length; i++) {
+            if (actors_array.indexOf(actors_ids[i]) == -1) {
+              actors_array.push(actors_ids[i]);
+              localStorage.setItem('fav-actors', JSON.stringify(actors_array));
             }
           }
         }
