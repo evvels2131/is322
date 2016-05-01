@@ -103,75 +103,92 @@ define([
       return isFavorite;
     },
 
+
+
     addToFavorites: function(e) {
       e.preventDefault();
+
       // Set the isFavorite attribute to true
       this.model.set('isFavorite', true);
 
-      var genres_array = [];
+      // Grab movie id
+      var movie_id = this.model.get('id');
 
-      // Check if there are any genres associated with the model
+      console.log(movie_id);
+
+      // Grab genre ids if existent
+      var genres_ids = [];
       if (this.model.get('genres').length > 0) {
-        var genres = this.model.get('genres');
-
-        for (var i = 0; i < genres.length; i++) {
-          genres_array[i] = genres[i].id;
+        for (var i = 0; i < this.model.get('genres').length; i++) {
+          genres_ids[i] = this.model.get('genres')[i].id;
         }
       }
+      console.log(genres_ids);
 
-      // Check if there are any actors available
-      var actors = [];
-      if (this.model.get('credits').cast.length > 0) {
+      // Grab actors ids if existent
+      var actors_ids = [];
+      if (this.model.get('credits').cast.length > 2) {
         for (var i = 0; i < 2; i++) {
-          actors[i] = this.model.get('credits').cast[i].id;
+          actors_ids[i] = this.model.get('credits').cast[i].id;
         }
       }
 
-      // Save to local storage
-      localStorageSave(this.model.get('id'), genres_array, actors);
+      console.log(actors_ids);
 
-      function localStorageSave(movie_id, genre_ids, actors_ids)
+      saveToLocalStorage(movie_id, genres_ids, actors_ids);
+
+      function saveToLocalStorage(movie, genres, actors) 
       {
-        var movie_array = [];
-        var genre_array = [];
-        var actors_array = [];
+        console.log(movie);
+        console.log(genres);
+        console.log(actors);
+        // Arrays that will hold information about movies, genres, and actors
+        // stored in local storage
+        var moviesLS = [];
+        var genresLS = [];
+        var actorsLS = [];
 
-        // If local storage not set, create it
-        if (localStorage.getItem('fav-movies') == null || localStorage.getItem('fav-genres') == null || localStorage.getItem('fav-actors')) {
-          localStorage.setItem('fav-movies', JSON.stringify(movie_array));
-          localStorage.setItem('fav-genres', JSON.stringify(genre_array));
-          localStorage.setItem('fav-actors', JSON.stringify(actors_array));
+        // Check if local storage is set
+        if (localStorage.getItem('fav-movies') == null ||
+            localStorage.getItem('fav-genres') == null ||
+            localStorage.getItem('fav-actors') == null) {
+          // Set the local storage for appropriate information
+          localStorage.setItem('fav-movies', JSON.stringify(moviesLS));
+          localStorage.setItem('fav-genres', JSON.stringify(genresLS));
+          localStorage.setItem('fav-actors', JSON.stringify(actorsLS));
         }
 
-        // Add movie information to local storage
-        movie_array = JSON.parse(localStorage.getItem('fav-movies'));
-
-        // Check if movie id already exists in the local storage
-        if (movie_array.indexOf(movie_id) === -1) {
-          movie_array.push(movie_id);
-          localStorage.setItem('fav-movies', JSON.stringify(movie_array));
+        // Add information about a movie to local storage making sure that it has
+        // not been already added
+        moviesLS = JSON.parse(localStorage.getItem('fav-movies'));
+        if (moviesLS.indexOf(movie) === -1) {
+          moviesLS.push(movie);
+          localStorage.setItem('fav-movies', JSON.stringify(moviesLS));
+          console.log('added a movie id');
         }
 
-        // Check if there are any genre ids, if so, store them in local storage
-        if (genre_ids.length > 0) {
-          genre_array = JSON.parse(localStorage.getItem('fav-genres'));
+        // Check if there are any genres available, if so, store them in local storage
+        if (genres.length > 0) {
+          genresLS = JSON.parse(localStorage.getItem('fav-genres'));
 
-          for (var i = 0; i < genre_ids.length; i++) {
-            if (genre_array.indexOf(genre_ids[i]) == -1) {
-              genre_array.push(genre_ids[i]);
-              localStorage.setItem('fav-genres', JSON.stringify(genre_array));
+          for (var i = 0; i < genres.length; i++) {
+            if (genresLS.indexOf(genres[i]) === -1) {
+              genresLS.push(genres[i]);
+              localStorage.setItem('fav-genres', JSON.stringify(genresLS));
+              console.log('added genres');
             }
           }
         }
 
-        // Check to see if there are any actors, if so, store them in local storage
-        if (actors_ids.length > 0) {
-          actors_array = JSON.parse(localStorage.getItem('fav-actors'));
+        // Check if there are any actors available, if so, store them in local storage
+        if (actors.length > 0) {
+          actorsLS = JSON.parse(localStorage.getItem('fav-actors'));
 
-          for (var i = 0; actors_ids.length; i++) {
-            if (actors_array.indexOf(actors_ids[i]) == -1) {
-              actors_array.push(actors_ids[i]);
-              localStorage.setItem('fav-actors', JSON.stringify(actors_array));
+          for (var i = 0; i < 2; i++) {
+            if (actorsLS.indexOf(actors[i]) === -1) {
+              actorsLS.push(actors[i]);
+              localStorage.setItem('fav-actors', JSON.stringify(actorsLS));
+              console.log('added an actor');
             }
           }
         }
