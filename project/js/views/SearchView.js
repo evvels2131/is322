@@ -57,13 +57,13 @@ define([
     },
 
     searchMovie: function() {
-      var self = this;
+      var input = this.$el.find('#search-movie-input').val();
 
-      if ($('#search-movie-input').val() != '') {
-        this.title = $('#search-movie-input').val();
+      if (input != '' || input != 'undefined') {
+        this.title = input;
         this.render();
       } else {
-        console.log('Input field empty');
+        console.log('something went wrong, input field empty?');
       }
 
       //console.log('clicked');
