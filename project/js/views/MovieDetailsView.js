@@ -198,7 +198,6 @@ define([
           genres[i] = this.model.get('genres')[i].id;
         }
       }
-      console.log(genres);
 
       // Check if there are any actor ids avilable
       if (this.model.get('credits').cast.length > 0) {
@@ -206,7 +205,6 @@ define([
           actors[i] = this.model.get('credits').cast[i].id;
         }
       }
-      console.log(actors);
 
       removeFromLocalStorage(movie, genres, actors);
 
@@ -243,7 +241,6 @@ define([
 
           // Check if there are any actors associated with this particular movie,
           // if so, delete them
-          console.log(actors);
           if (actors.length > 0) {
             actorsLS = JSON.parse(localStorage.getItem('fav-actors'));
 
