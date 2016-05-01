@@ -46,18 +46,12 @@ define([
             self.model.set('isFavorite', false);
           }
 
-          // Grab the trailer source if exists
-          var trailer_source;
-          if (self.model.attributes.trailers.youtube.length == 1) {
-            trailer_source = self.model.attributes.trailers.youtube[0].source;
-          }
-
           self.content = template({
             original_title: self.model.get('original_title'),
             overview: self.model.get('overview'),
             release_date: self.model.get('release_date'),
             is_favorite: self.model.get('isFavorite'),
-            trailer_source: trailer_source,
+            trailer_source: self.model.get('trailers'),
             similar: self.model.get('similar'),
             credits: self.model.get('credits'),
             poster: self.model.get('poster_path'),
