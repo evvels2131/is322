@@ -10,9 +10,10 @@ define([
 
     initialize: function(options) {
       this.genres = options.genres;
+      this.actors = options.actors;
       this.page = options.page;
       this.optional_parameters = '&with_genres=' + this.genres +
-       '&sort_by=vote_average.desc&primary_release_date.gte=2014-01-01&primary_release_date.lte=2017-01-01&page=' +
+       '&sort_by=vote_average.asc&language=en&with_cast=' + this.actors + '&page=' +
        this.page;
     },
 
