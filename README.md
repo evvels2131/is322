@@ -4,7 +4,8 @@
 <b>Midterm: </b>
 <a href="https://web.njit.edu/~tg77/is322/midterm/" target="_blank">
   web.njit.edu/~tg77/is322/midterm/index.html</a>
-<br /><br />
+<br />
+<b>Final: </b>
 <a href="https://web.njit.edu/~tg77/is322/project/" target="_blank">web.njit.edu/~tg77/is322/project/index.html</a>
 <br /><br />
 <hr>
