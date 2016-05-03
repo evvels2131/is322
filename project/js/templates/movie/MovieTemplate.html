@@ -4,7 +4,11 @@
   <% } else { %>
     <img src="images/poster-alt.png" class="poster poster-alt" />
   <% } %>
-  <h2><%= original_title %></h2>
+  <% if (isFavorite) { %>
+  	<h2 style="color:blue"><%= original_title %></h2><%
+  } else { %>
+  	<h2><%= original_title %></h2><%
+  } %>
   <p><b>Vote Average:</b> <%= vote_average %></p>
   <p><b>Release Date:</b> <%= release_date %></p>
 </a>
