@@ -62,14 +62,11 @@ define([
       var input = this.$el.find('#search-movie-input').val();
 
       if (input != '' || input != 'undefined') {
-
         var idx = window.location.href.indexOf('#search');
         var url = window.location.href.substr(0, idx);
         url = url.concat('#search/', input);
         url = url.replace(/\s/g, '%20');
         window.location.href = url;
-
-        this.title = input;
       } else {
         console.log('something went wrong, input field empty?');
       }
