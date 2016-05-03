@@ -106,10 +106,8 @@ define([
           for (var i = 0; i < result.length; i++) {
             if (result.indexOf(result[i]) < result.length - 1) {
               api = api.concat(result[i] + char);
-              console.log(api);
             } else {
               api = api.concat(result[i]);
-              console.log(api);
             }
           }
         }
