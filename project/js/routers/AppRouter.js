@@ -17,7 +17,7 @@ define([
       'movie/:id': 'movie',
       'person/:id': 'person',
 
-      'search': 'search',
+      'search/:query': 'search',
       'theaters': 'theaters',
       'discover': 'discover'
     },
@@ -37,7 +37,7 @@ define([
 
     // Movie Details Page
     movie: function(id) {
-      console.log('#movie/:id');
+      console.log('#movie/' + id);
       this.changePage(new MovieDetailsView({ id: id }));
     },
 
@@ -47,9 +47,9 @@ define([
       this.changePage(new PersonView({ id: id }));
     },
 
-    search: function() {
-      console.log('#search');
-      this.changePage(new SearchView());
+    search: function(query) {
+      console.log('#search/' + query);
+      this.changePage(new SearchView({ query: query }));
     },
 
     theaters: function() {
