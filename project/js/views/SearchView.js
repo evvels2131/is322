@@ -15,9 +15,11 @@ define([
       'click #search-movie-btn': 'searchMovie'
     },
 
-    initialize: function() {
+    initialize: function(options) {
+      if (options.query != 'undefined') {
+        this.title = options.query;
+      }
       this.content = 'undefined';
-      this.title = 'Star Wars';
       this.page = 1;
 
       this.render();
@@ -60,59 +62,17 @@ define([
       var input = this.$el.find('#search-movie-input').val();
 
       if (input != '' || input != 'undefined') {
+
+        var idx = window.location.href.indexOf('#search');
+        var url = window.location.href.substr(0, idx);
+        url = url.concat('#search/', input);
+        url = url.replace(/\s/g, '%20');
+        window.location.href = url;
+
         this.title = input;
-        this.render();
       } else {
         console.log('something went wrong, input field empty?');
       }
-
-      //console.log('clicked');
-      //console.log(window.location.href);
-      //var title = $('#search-movie-input').val();
-      //$('#search-movie-input').val('');
-
-      //var title = document.getElementById('search-movie-input').value;
-
-      //var title2 = $('#search-movie-input').val();
-      //this.title = $('#search-movie-input').val();
-      //console.log(this.title);
-      //console.log(title);
-
-      /*var test = window.location.href.indexOf('#search');
-      var test2 = window.location.href.substr(0, test);
-      var test2 = test2.concat('#search_results/', title);
-      var test2 = test2.replace(/\s/g, '%20');
-      //window.location = test2;
-      console.log(test2);*/
-      //this.title = '';
-      //window.location = test2;
-
-      //var test_this = 'http://localhost:8888/is322/wrk/project/#search/how%20to%20fuck%20bitches';
-
-      //this.title = $('#search-movie-input').val();
-      /*var title = $('#search-movie-input').val();
-      console.log(document.getElementById('search-movie-input'));
-      console.log(title);
-
-      if (title != '') {
-        var url = '';
-        var new_url = '';
-        var indexOfSearch = window.location.href.indexOf('search');
-
-        if (indexOfSearch < window.location.href.length) {
-          //url = test_this.substr(0, indexOfSearch + 7);
-          url = window.location.href.substr(0, indexOfSearch + 6);
-          new_url = url.concat('/', title);
-          new_url = new_url.replace(/\s/g, '%20');
-          console.log(new_url);
-          //window.location = new_url;
-          //window.location.href = new_url;
-          //window.location.href = 'ha';
-          //console.log(new_url);
-          //window.location.href = new_url;
-        }
-        //window.location.href = new_url;
-      }*/
     }
   });
 });
