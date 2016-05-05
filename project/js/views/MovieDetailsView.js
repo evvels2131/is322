@@ -13,7 +13,6 @@ define([
     template: _.template(movieDetailsTemplate),
 
     initialize: function(options) {
-      console.log('MovieDetailsView Initialized');
       var self = this;
 
       this.content = 'undefined';

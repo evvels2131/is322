@@ -12,7 +12,6 @@ define([
     template: _.template(personViewTemplate),
 
     initialize: function(options) {
-      console.log('PersonView Initialized');
       var self = this;
 
       this.content = 'undefined';

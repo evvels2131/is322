@@ -11,7 +11,6 @@ define([
     template: _.template($('#movies-upcoming').html()),
 
     initialize: function() {
-      console.log('UpcomingView Initialized');
 
       this.content = 'undefined';
       this.category = 'upcoming';

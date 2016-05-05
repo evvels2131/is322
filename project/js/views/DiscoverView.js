@@ -12,7 +12,6 @@ define([
     template: _.template(discoverViewTemplate),
 
     initialize: function() {
-      console.log('DiscoverView Initialized');
 
       this.content = 'undefined';
       this.favorites_exist = false;

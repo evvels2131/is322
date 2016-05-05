@@ -11,7 +11,6 @@ define([
     template: _.template($('#movies-top-rated').html()),
 
     initialize: function() {
-      console.log('TopRatedView Initialized');
 
       this.content = 'undefined';
       this.category = 'top_rated';
