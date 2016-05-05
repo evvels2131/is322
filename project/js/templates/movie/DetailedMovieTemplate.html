@@ -7,7 +7,7 @@
       <% if (poster != null) { %>
         <img src="http://image.tmdb.org/t/p/w500<%= poster %>" class="poster-movie-details" />
       <% } else { %>
-        <img src="images/poster-alt.png" class="poster-movie-details" />
+        <img src="images/poster.png" class="poster-movie-details" />
       <% } %>
     </div>
   </div>
@@ -70,9 +70,9 @@
         } %>
       </ul>
       <% } %>
-      <hr>
 
       <% if (trailer_source.youtube.length > 0) { %>
+        <hr>
         <p><strong>Trailer</strong></p>
         <div class="center">
           <iframe src="https://youtube.com/embed/<%=trailer_source.youtube[0].source %>" allowfullscreen></iframe>
