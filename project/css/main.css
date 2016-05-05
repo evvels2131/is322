@@ -99,7 +99,7 @@
 /* Set the height to 100 vertical height */
 .height-100vh {
   height: 100vh;
-  margin-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 /* Text align left */
