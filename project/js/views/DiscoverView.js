@@ -17,7 +17,7 @@ define([
       this.favorites_exist = false;
       this.page = 1;
       this.favGenresLS = this.getFavoritesLS('fav-genres', 2, ',');
-      this.favActorsLS = this.getFavoritesLS('fav-actors', 4, '|');
+      this.favActorsLS = this.getFavoritesLS('fav-actors', 6, '|');
 
       // If favorite genres are available in the local storage,
       // get the collection and display it to the user
