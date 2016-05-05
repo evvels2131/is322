@@ -54,7 +54,7 @@
 
   <% if (credits.cast.length > 0) { %>
       <p><strong>Cast members:</strong></p>
-      <ul data-role="listview" class="cast-members-list">
+      <ul data-role="listview" data-inset="true">
       <% if (credits.cast.length > 5) {
         var cast = []
         for (var i = 0; i < 5; i++) {
