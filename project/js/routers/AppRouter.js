@@ -63,11 +63,36 @@ define([
     },
 
     changePage: function(page) {
-      $(page.el).attr('data-role', 'page');
-      page.render();
-      $('body').append($(page.el));
-      var transition = 'none';
-      //var transition = $.mobile.defaultPageTransition;
+      // Change navigation bar's elements from active to not active when appropriate
+      $(function() {
+        $('[data-role="navbar"]').navbar();
+        $('[data-role="footer"]').navbar();
+      });
+
+      $(document).on('pagecontainerchange', function() {
+        var current = document.location.href.substring(32 + 8, document.location.href.length);
+        $('[data-role="navbar"] a.ui-btn-active').removeClass('ui-btn-active');
+        $('[data-role="navbar"] a').each(function() {
+          var href = $(this).prop('href');
+          if (href.indexOf(current, href.length - current.length) !== -1) {
+            $(this).addClass('ui-btn-active');
+          }
+        });
+      });
+
+      // Display the navigation bar on certain pages, whenever necessary
+      $(function() {
+        if (document.location.href.indexOf('#movie') !== -1 ||
+            document.location.href.indexOf('#person') !== -1) {
+          $('[data-role="footer"]').css('display', 'none');
+        } else {
+          $('[data-role="footer"]').css('display', 'block');
+        }
+      });
+
+      $('body').prepend($(page.el));
+      $('#page-content').prepend($(page.el));
+      var transition = $.mobile.defaultPageTransition;
 
       if (this.firstPage) {
         transition = 'none';
