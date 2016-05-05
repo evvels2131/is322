@@ -221,3 +221,7 @@
   background-size: 24px 22px;
 }
 
+/* Styling for the search movie input field */
+#search-movie-input {
+  padding-left: 15px;
+}
