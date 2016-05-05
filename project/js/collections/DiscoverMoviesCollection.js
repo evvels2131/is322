@@ -18,7 +18,7 @@ define([
     },
 
     url: function() {
-      return 'http://api.themoviedb.org/3/discover/movie?api_key=9253b5607c386360d241ec304c9e1520' +
+      return 'https://api.themoviedb.org/3/discover/movie?api_key=9253b5607c386360d241ec304c9e1520' +
        this.optional_parameters;
     },
 
