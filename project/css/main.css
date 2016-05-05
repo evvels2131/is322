@@ -152,11 +152,6 @@
   padding-left: 10px;
 }
 
-/* Movie details - cast members list */
-.cast-members-list {
-  padding: 15px 20px 20px 20px;
-}
-
 /* Info window theaters */
 #info-window .text {
   font-size: 1.1em;
