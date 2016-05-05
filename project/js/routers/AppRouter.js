@@ -31,7 +31,6 @@ define([
 
     home: function(category) {
       console.log('#home');
-      console.log(category);
       this.changePage(new HomeView({ category: category }));
     },
 
@@ -70,11 +69,31 @@ define([
       });
 
       $(document).on('pagecontainerchange', function() {
-        var current = document.location.href.substring(32 + 8, document.location.href.length);
+        var indexOfProject = document.location.href.indexOf('project');
+        var currPage = document.location.href;
+        var currentPage = document.location.href.substring(indexOfProject + 8, document.location.href.length);
+
+        if (currentPage.indexOf('/') !== -1) {
+          currentPage = currentPage.substring(0, currentPage.indexOf('/'));
+        }
+
         $('[data-role="navbar"] a.ui-btn-active').removeClass('ui-btn-active');
         $('[data-role="navbar"] a').each(function() {
           var href = $(this).prop('href');
-          if (href.indexOf(current, href.length - current.length) !== -1) {
+
+          var indexOfProject = href.indexOf('project');
+          var new_href = href.substring(indexOfProject + 8, href.length);
+          if (new_href.indexOf('/') !== -1) {
+            new_href = new_href.substring(0, new_href.indexOf('/'));
+          }
+
+          if (currPage.indexOf('#home/') !== -1) {
+            if (new_href == '#') {
+              $(this).addClass('ui-btn-active');
+            }
+          }
+
+          if (currentPage == new_href) {
             $(this).addClass('ui-btn-active');
           }
         });
