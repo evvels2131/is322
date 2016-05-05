@@ -109,16 +109,12 @@ define([
         }
       });
 
-      $('body').prepend($(page.el));
       $('#page-content').prepend($(page.el));
-      var transition = $.mobile.defaultPageTransition;
 
-      if (this.firstPage) {
-        transition = 'none';
-        this.firstPage = false;
-      }
-
-      $.mobile.changePage($(page.el), { changeHash: false, transition: transition });
+      $.mobile.pageContainer.pagecontainer('change', $(page.el), {
+        changeHash: false,
+        transition: 'none'
+      });
     }
   });
 
