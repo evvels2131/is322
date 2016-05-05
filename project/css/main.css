@@ -182,6 +182,10 @@
 }
 
 /* Navigation styling */
+.nav-glyphish {
+  border-style: none;
+}
+
 .nav-glyphish .ui-btn {
   padding-top: 35px !important;
 }
@@ -198,41 +202,22 @@
 }
 
 #movie-icon:after {
-  background-image: url("../images/nav-icons/movie.png");
-  background-size: 24px 22px;
-}
-
-#movie-icon-active:after {
-  background-image: url("../images/nav-icons/movie-active.png");
+  background-image: url("../images/nav-icons/movie-white.png");
   background-size: 24px 22px;
 }
 
 #search-icon:after {
-  background-image: url("../images/nav-icons/search.png");
-  background-size: 24px 22px;
-}
-
-#search-icon-active:after {
-  background-image: url("../images/nav-icons/search-active.png");
+  background-image: url("../images/nav-icons/search-white.png");
   background-size: 24px 22px;
 }
 
 #theaters-icon:after {
-  background-image: url("../images/nav-icons/theater.png");
-  background-size: 24px 22px;
-}
-
-#theaters-icon-active:after {
-  background-image: url("../images/nav-icons/theater-active.png");
+  background-image: url("../images/nav-icons/theater-white.png");
   background-size: 24px 22px;
 }
 
 #discover-icon:after {
-  background-image: url("../images/nav-icons/star.png");
+  background-image: url("../images/nav-icons/star-white.png");
   background-size: 24px 22px;
 }
 
-#discover-icon-active:after {
-  background-image: url("../images/nav-icons/star-active.png");
-  background-size: 24px 22px;
-}
