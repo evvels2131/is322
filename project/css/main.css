@@ -114,15 +114,16 @@
 /* Styling for the actors image on the actor details page */
 .actor_img {
   width: 90px;
-  padding-top: 20px;
   border-radius: 5px;
+  margin: 5px 0px 0px 5px;
 }
 
 /* Styling for the poster on the movie details page */
 .poster-movie-details {
   width: 80px;
   border-radius: 5px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
+  margin: 10px 5px 5px 15px;
 }
 
 /* Overriding the width property of jquery mobile ui-grids */
