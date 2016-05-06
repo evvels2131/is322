@@ -1,3 +1,7 @@
+.ui-content {
+  background-color: red;
+}
+
 .info {
   color: rgb(15, 118, 241);
 }
