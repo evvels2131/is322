@@ -52,17 +52,6 @@
   left : 0 !important;
 }
 
-/* Used to display similar movies on the movie details page */
-#similar_movies {
-  margin: 5px auto 5px auto;
-  padding-top: 5px;
-  padding-bottom: 1px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: white;
-  box-shadow: 0px 5px 5px -0px rgba(0,0,0,0.3);
-}
-
 .card {
   background-color: white;
   box-shadow: 0px 5px 5px -0px rgba(0,0,0,0.3);
@@ -80,6 +69,7 @@
 
 .similar_poster {
   width: 75px;
+  border-radius: 5px;
 }
 
 /* Used to display the heart icon */
