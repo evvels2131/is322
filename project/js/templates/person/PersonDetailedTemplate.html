@@ -34,13 +34,13 @@
         }
         _.each(movies, function(movie) {
           if (movie.poster_path != null) { %>
-            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster"></img></a> <%
+            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster" /></a> <%
           }
         });
       } else {
         _.each(movie_credits.cast, function(movie) {
           if (movie.poster_path != null) { %>
-            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster"></img></a> <%
+            <a href="#movie/<%= movie.id %>"><img src="http://image.tmdb.org/t/p/w500<%=movie.poster_path%>" class="similar_poster" /></a> <%
           }
         });
       } %>
