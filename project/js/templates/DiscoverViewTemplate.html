@@ -4,10 +4,9 @@
 
 <div role="main" class="ui-content height-100vh">
   <% if (content === 'undefined') { %>
-    <div class="card">
-      <h3 class="info">You haven't liked any movies yet!</h3>
-      <p>Please browse through different movies and like them to get recommendations.</p>
-      <div class="center"><img src="images/like.png" /></div>
+    <div style="margin: 150px 0px auto 0px;" class="center">
+      <h3>Browse through different movies and like them to get recommendations.</h3>
+      <div><img src="images/like.png" /></div>
     </div>
   <% } else {
     print(content);
