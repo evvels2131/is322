@@ -9,3 +9,7 @@ Develop a hybrid mobile application using the following technologies:
 * `require.js` <br />
 
 <p>My project consisted of a mobile application similar to `Flixter` where users are able to search for movies and get information about them. Users are also able to see nearby movie theaters as well as get recommendations based on movies they liked.</p>
+
+<p>
+  [Final Project](http://goto1.github.io/is322/docs/)
+</p>
