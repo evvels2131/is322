@@ -2,7 +2,7 @@
 
 <h3>Final Project Description</h3>
 <p>
-Develop a hybrid mobile application using the following technologies:
+<u>Develop a hybrid mobile application using the following technologies:</u>
 </p>
 * `jQuery Mobile`<br />
 * `Backbone.js` <br />
