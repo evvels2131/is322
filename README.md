@@ -1,14 +1,6 @@
-# IS 322-002
+# IS 322 - Mobile Applications: Design & Development
 
-<h3>Links:</h3>
-<b>Midterm: </b>
-<a href="https://web.njit.edu/~tg77/is322/midterm/" target="_blank">
-  web.njit.edu/~tg77/is322/midterm/index.html</a>
-<br />
-<b>Final: </b>
-<a href="https://web.njit.edu/~tg77/is322/project/" target="_blank">web.njit.edu/~tg77/is322/project/index.html</a>
-<br /><br />
-<hr>
-<b>Tomasz Goralczyk</b><br />
-<b>IS 322-002</b><br />
-<b>Professor Keith Williams</b><br />
+<h3>Final Project Description</h3>
+<p><b>
+Develop a hybrid mobile application using technologies such as `jQuery Mobile`, `Backbone.js` and `require.js`. <br /><br /> My project consisted of a mobile application similar to `Flixter` where users are able to search for movies and get information about them. Users are also able to see nearby movie theaters as well as get recommendations based on movies they liked.
+</b></p>
