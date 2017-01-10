@@ -1,9 +1,9 @@
 # IS 322 - Mobile Applications: Design & Development
 
-<h3>Final Project Description</h3>
-<p>
-<u>Develop a hybrid mobile application using the following technologies:</u>
-</p>
+<h1>Final Project Description</h1>
+<h2>
+Develop a hybrid mobile application using the following technologies:
+</h2>
 * `jQuery Mobile`<br />
 * `Backbone.js` <br />
 * `require.js` <br />
@@ -12,3 +12,8 @@
 
 <p><b>Link:</b></p>
 * [Final Project](http://goto1.github.io/is322/docs/)
+
+Alt-H2
+------
+Alt-H1
+======
