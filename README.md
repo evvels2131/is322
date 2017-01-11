@@ -14,7 +14,9 @@ This course is a practical introduction to building applications for mobile devi
 * `CSS`
 
 ### Project Idea
-<p>My project consisted of a mobile application similar to `Flixster` where users are able to search for movies and get information about them. Users are also able to see nearby movie theaters as well as get recommendations based on movies they liked</p>
+<p>
+My project consisted of a mobile application similar to `Flixster` where users are able to search for movies and get information about them. Users are also able to see nearby movie theaters as well as get recommendations based on movies they liked.
+</p>
 
 ### Link
 * [Final Project](https://goto1.github.io/is322/docs/)
